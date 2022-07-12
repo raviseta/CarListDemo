@@ -7,7 +7,13 @@
 
 import Foundation
 
-final class CarViewModel  {
+protocol CarListViewModel {
+    var totalCount: Int {get}
+    func carListAPI(success: @escaping(()-> ()),failure: @escaping((String) -> ()))
+    func car(at index: Int) -> Content
+}
+
+final class CarViewModel : CarListViewModel  {
     
     var netWorkManager : NetWorkManagerProtocol!
     

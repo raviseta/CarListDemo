@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak private var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
-    private var viewModel : CarViewModel!
+    private var viewModel : CarListViewModel!
     
     //MARK: - View Cycle
     
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         guard Reachability.isConnectedToNetwork() else {
             return
         }
+        
         indicator.startAnimating()
         
         viewModel = CarViewModel()

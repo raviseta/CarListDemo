@@ -100,6 +100,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC981216287D6AC6006CD7C2 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AC981219287D6AF5006CD7C2 /* View */,
+			);
+			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		AC981219287D6AF5006CD7C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC98412B287C761200BFBCD1 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +195,7 @@
 				AC98417E287C77FE00BFBCD1 /* ViewModel */,
 				AC98417B287C77BA00BFBCD1 /* Model */,
 				AC984176287C774100BFBCD1 /* View */,
+				AC981216287D6AC6006CD7C2 /* DetailScreen */,
 			);
 			path = CarModule;
 			sourceTree = "<group>";
