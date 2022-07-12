@@ -19,7 +19,7 @@ enum ResponseHandler<T: Decodable> {
 
 protocol NetWorkManagerProtocol{
     func request<T: Decodable>(
-        endpoint: eAPIURL,
+        endpoint: APIURL,
         parameters: Encodable?,
         responseType: T.Type,
         completion: @escaping APIResponseHandler<T>
@@ -40,7 +40,7 @@ final class NetWorkManager : NetWorkManagerProtocol {
     }
     
     func request<T: Decodable>(
-        endpoint: eAPIURL,
+        endpoint: APIURL,
         parameters: Encodable?,
         responseType: T.Type,
         completion: @escaping APIResponseHandler<T>

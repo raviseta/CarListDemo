@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum eAPIBaseURL: String {
+enum APIBaseURL: String {
     
     case baseURLLive = "https://www.apphusetreach.no/application/119267/"
     case baseURLTesting = ""
@@ -15,19 +15,19 @@ enum eAPIBaseURL: String {
     static func getBaseURL() -> String {
         switch AppEnvironment.shared.environmentType {
         case .development:
-            return eAPIBaseURL.baseURLTesting.rawValue
+            return APIBaseURL.baseURLTesting.rawValue
         case .production:
-            return eAPIBaseURL.baseURLLive.rawValue
+            return APIBaseURL.baseURLLive.rawValue
         }
     }
 }
 
-enum eAPIURL {
+enum APIURL {
     case getCarList
     case none
     
     func getURL() -> String {
-        let baseURL = eAPIBaseURL.getBaseURL()
+        let baseURL = APIBaseURL.getBaseURL()
         
         switch self {
         case .getCarList:

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum eAppEnvironment {
+enum Environment {
     case development,
     production
 }
@@ -15,7 +15,7 @@ enum eAppEnvironment {
 class AppEnvironment {
     
     static let shared = AppEnvironment()
-    var environmentType: eAppEnvironment = .production
+    var environmentType: Environment = .production
     
     
 }
