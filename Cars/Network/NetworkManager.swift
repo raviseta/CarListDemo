@@ -17,7 +17,7 @@ enum ResponseHandler<T: Decodable> {
 
 // MARK: - NetworkManager
 
-protocol NetWorkManagerProtocol{
+protocol NetWorkManagerProtocol {
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
@@ -26,10 +26,10 @@ protocol NetWorkManagerProtocol{
     )
 }
 
-final class NetWorkManager : NetWorkManagerProtocol {
+final class NetWorkManager: NetWorkManagerProtocol {
     
-    private func toDictionary(modelObject: Any) -> [String : Any] {
-        var dictionary = [String:Any]()
+    private func toDictionary(modelObject: Any) -> [String: Any] {
+        var dictionary = [String: Any]()
         let otherSelf = Mirror(reflecting: modelObject)
         for child in otherSelf.children {
             if let key = child.label {

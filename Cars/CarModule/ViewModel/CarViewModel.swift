@@ -13,9 +13,9 @@ protocol CarListViewModel {
     func car(at index: Int) -> Content
 }
 
-final class CarViewModel : CarListViewModel  {
+final class CarViewModel: CarListViewModel  {
     
-    var netWorkManager : NetWorkManagerProtocol!
+    var netWorkManager: NetWorkManagerProtocol!
     
     private var cars = [Content]()
     private var total = 0
@@ -24,7 +24,7 @@ final class CarViewModel : CarListViewModel  {
         return total
     }
     
-    init(netWorkManager : NetWorkManagerProtocol = NetWorkManager()){
+    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager()){
         self.netWorkManager = netWorkManager
     }
     
@@ -42,11 +42,9 @@ final class CarViewModel : CarListViewModel  {
                 self.cars.append(contentsOf: articles.content)
                 self.total = self.cars.count
                 success()
-                break
                 
             case .failure(error: let error):
                 failure(error.localizedDescription)
-                break
             }
         }
         

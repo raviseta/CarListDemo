@@ -14,9 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak private var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
-    private var viewModel : CarListViewModel!
+    private var viewModel: CarListViewModel!
     
-    //MARK: - View Cycle
+    // MARK: - View Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         self.getArticleDetails()
     }
         
-    
     // MARK: - Get Article Data
     private func getArticleDetails() {
         
@@ -67,8 +66,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CarListTableCell.className, for: indexPath) as? CarListTableCell else {
             fatalError("CarListTableCell not found")
         }
-        
-        cell.viewModel = viewModel.car(at: indexPath.row)
+        let data = viewModel.car(at: indexPath.row)
+        cell.viewModel = CarCellViewModel(viewModel: data)
         return cell
     }
 }

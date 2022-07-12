@@ -16,7 +16,7 @@ class CarListTableCell: UITableViewCell {
     @IBOutlet var lblDescription: UILabel!
     @IBOutlet weak var viewGradiant: UIView!
     
-    var viewModel: Content? {
+    var viewModel: CarCellViewModel?{
         didSet {
             bindViewModel()
         }
@@ -38,11 +38,11 @@ class CarListTableCell: UITableViewCell {
     
     // MARK: - BindData
     private func bindViewModel() {
-        if let vm = viewModel {
-            self.lblTitle.text = vm.title
-            self.lblDate.text = vm.dateTime
-            self.lblDescription.text = vm.ingress
-            let imageURL = URL(string: vm.image)
+        if let viewModel = viewModel {
+            self.lblTitle.text = viewModel.title
+            self.lblDate.text = viewModel.dateTime
+            self.lblDescription.text = viewModel.ingress
+            let imageURL = URL(string: viewModel.image)
             self.ivCar.kf.setImage(with: imageURL)
         }
     }

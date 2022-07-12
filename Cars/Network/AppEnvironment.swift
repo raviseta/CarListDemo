@@ -17,5 +17,4 @@ class AppEnvironment {
     static let shared = AppEnvironment()
     var environmentType: Environment = .production
     
-    
 }
