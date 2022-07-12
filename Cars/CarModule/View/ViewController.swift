@@ -37,7 +37,12 @@ class ViewController: UIViewController {
     
     // MARK: - Get Article Data
     private func getArticleDetails() {
+        
+        guard Reachability.isConnectedToNetwork() else {
+            return
+        }
         indicator.startAnimating()
+        
         viewModel = CarViewModel()
         viewModel.carListAPI {
             DispatchQueue.main.async {
