@@ -66,14 +66,14 @@ final class NetWorkManager: NetWorkManagerProtocol {
             dataTask = defaultSession.dataTask(with: url) { data, response, error in
                 
                 guard let data = data else {
-                    completion(.failure(error: NSError(domain: "API", code: 404, userInfo: [NSLocalizedDescriptionKey: "Data not in correct format!"])))
+                    completion(.failure(error: NSError(domain: "API", code: 404, userInfo: [NSLocalizedDescriptionKey: "Data invalid"])))
                     return
                 }
                 
                 do {
                     let response = try JSONDecoder().decode(responseType.self, from: data)
                     completion(.success(result: response))
-                } catch (let err) {
+                } catch let err {
                     completion(.failure(error: err))
                 }
             }

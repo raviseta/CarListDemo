@@ -12,7 +12,7 @@ extension UIViewController {
     func showAlert(title: String? = "Cars", message: String?) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
         })
                 
         dialogMessage.addAction(actionOK)
