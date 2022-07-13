@@ -1,37 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GEU-jG-nUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3fb-oW-X0R">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="kdQ-QQ-ehe">
-            <objects>
-                <navigationController id="GEU-jG-nUx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4Y-G1-qI4">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3fb-oW-X0R" kind="relationship" relationship="rootViewController" id="xif-7m-ny0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xDC-5g-Sdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-674" y="100"/>
-        </scene>
         <!--Cars-->
         <scene sceneID="Mcb-vQ-zvN">
             <objects>
-                <viewController id="3fb-oW-X0R" customClass="CarListViewController" customModule="Car" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3fb-oW-X0R" customClass="CarListViewController" customModule="Cars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mb9-PT-OPT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c5M-Qv-swL">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Z3n-FU-Xwo">
@@ -58,7 +44,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xy-Zp-6dV" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="100"/>
+            <point key="canvasLocation" x="-1003" y="114"/>
+        </scene>
+        <!--Car Detail View Controller-->
+        <scene sceneID="vJj-2L-0Xm">
+            <objects>
+                <viewController storyboardIdentifier="CarDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="teI-NT-HD6" customClass="CarDetailViewController" customModule="Cars" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RTY-rN-oxW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car descriptionCar descriptionCar descriptionCar descriptionCar descriptionCar description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62Y-bL-iji">
+                                <rect key="frame" x="20" y="94" width="349" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NvM-rS-I2l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NvM-rS-I2l" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="62Y-bL-iji" secondAttribute="bottom" constant="5" id="hqU-d4-2ef"/>
+                            <constraint firstItem="NvM-rS-I2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="62Y-bL-iji" secondAttribute="trailing" constant="20" id="kXr-sB-IUG"/>
+                            <constraint firstItem="62Y-bL-iji" firstAttribute="top" secondItem="NvM-rS-I2l" secondAttribute="top" constant="50" id="mg9-BO-RTw"/>
+                            <constraint firstItem="62Y-bL-iji" firstAttribute="leading" secondItem="NvM-rS-I2l" secondAttribute="leading" constant="20" id="wCb-Eg-DOg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblCarDescription" destination="62Y-bL-iji" id="ziH-Jq-iFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9tp-It-qvH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223" y="113"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

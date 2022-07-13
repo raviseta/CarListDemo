@@ -9,13 +9,16 @@ import Foundation
 
 protocol CarListViewModel {
     var totalCount: Int {get}
+    var coordinator: CarListCoordinator? {get set}
     func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void))
     func car(at index: Int) -> Content
+    func didSelectCar(at index: Int)
 }
 
 final class CarViewModel: CarListViewModel {
     
     var netWorkManager: NetWorkManagerProtocol!
+    var coordinator: CarListCoordinator?
     
     private var cars = [Content]()
     private var total = 0
@@ -30,6 +33,10 @@ final class CarViewModel: CarListViewModel {
     
     func car(at index: Int) -> Content {
         return cars[index]
+    }
+    
+    func didSelectCar(at index: Int) {
+        coordinator?.gotoDetailScreen(carData: cars[index])
     }
     
     func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void)) {

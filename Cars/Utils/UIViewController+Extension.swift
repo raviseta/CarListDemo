@@ -20,4 +20,11 @@ extension UIViewController {
             self.present(dialogMessage, animated: true, completion: nil)
         }
     }
+    
+    static func instantiate<T>() -> T {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "\(T.self)") as? T
+        return viewController!
+        
+    }
 }

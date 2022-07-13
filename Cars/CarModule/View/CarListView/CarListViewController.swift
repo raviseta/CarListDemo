@@ -14,7 +14,7 @@ class CarListViewController: UIViewController {
     @IBOutlet weak private var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
-    private var viewModel: CarListViewModel!
+    var viewModel: CarListViewModel!
     
     // MARK: - View Cycle
     
@@ -38,15 +38,15 @@ class CarListViewController: UIViewController {
     private func getArticleDetails() {
         
         indicator.startAnimating()
-        
-        viewModel = CarViewModel()
-        viewModel.carListAPI {
-            DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-                self.tableCarList.reloadData()
+        if let viewModel = viewModel {
+            viewModel.carListAPI {
+                DispatchQueue.main.async {
+                    self.indicator.stopAnimating()
+                    self.tableCarList.reloadData()
+                }
+            } failure: { errorMessage in
+                self.showAlert(message: errorMessage)
             }
-        } failure: { errorMessage in
-            self.showAlert(message: errorMessage)
         }
     }
 }
@@ -65,5 +65,9 @@ extension CarListViewController: UITableViewDelegate, UITableViewDataSource {
         let data = viewModel.car(at: indexPath.row)
         cell.viewModel = CarCellViewModel(viewModel: data)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectCar(at: indexPath.row)
     }
 }
