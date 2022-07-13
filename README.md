@@ -6,6 +6,7 @@
 - Dependancy Injection.
 - SOLID Principles.
 - Navigation using Coordinator.
+- Network call using async/await.
 
 ## Includes
 
@@ -14,7 +15,7 @@
 
 ## Requirements
 
-- Xcode 13.2.1 Swift 5.0+
+- Xcode 13.2 Swift 5.5+
 
 ## How to use app
 
