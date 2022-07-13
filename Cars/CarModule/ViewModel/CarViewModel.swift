@@ -9,11 +9,11 @@ import Foundation
 
 protocol CarListViewModel {
     var totalCount: Int {get}
-    func carListAPI(success: @escaping(()-> ()),failure: @escaping((String) -> ()))
+    func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void))
     func car(at index: Int) -> Content
 }
 
-final class CarViewModel: CarListViewModel  {
+final class CarViewModel: CarListViewModel {
     
     var netWorkManager: NetWorkManagerProtocol!
     
@@ -24,7 +24,7 @@ final class CarViewModel: CarListViewModel  {
         return total
     }
     
-    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager()){
+    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager()) {
         self.netWorkManager = netWorkManager
     }
     
@@ -32,9 +32,7 @@ final class CarViewModel: CarListViewModel  {
         return cars[index]
     }
         
-    func carListAPI(success: @escaping(()-> ())
-                        ,failure: @escaping((String) -> ())
-    ) {
+    func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void)) {
         
         netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self) { response in
             switch response {

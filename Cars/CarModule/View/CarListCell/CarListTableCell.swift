@@ -16,7 +16,7 @@ class CarListTableCell: UITableViewCell {
     @IBOutlet var lblDescription: UILabel!
     @IBOutlet weak var viewGradiant: UIView!
     
-    var viewModel: CarCellViewModel?{
+    var viewModel: CarCellViewModel? {
         didSet {
             bindViewModel()
         }
@@ -47,12 +47,9 @@ class CarListTableCell: UITableViewCell {
         }
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    
 }
-

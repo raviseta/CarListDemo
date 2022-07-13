@@ -10,8 +10,8 @@ import XCTest
 
 class CarsTests: XCTestCase {
 
-    var sut : CarViewModel!
-    var netWorkManager : NetWorkManagerProtocol!
+    var sut: CarViewModel!
+    var netWorkManager: NetWorkManagerProtocol!
 
     override func setUp() {
         super.setUp()
@@ -23,12 +23,12 @@ class CarsTests: XCTestCase {
         sut = nil
     }
         
-    func testArticleAPIURL() throws{
-        let url = eAPIURL.getCarList.getURL()
+    func testArticleAPIURL() throws {
+        let url = APIURL.getCarList.getURL()
         XCTAssertEqual(url, "https://www.apphusetreach.no/application/119267/article/get_articles_list")
     }
     
-    func testCarWebService_WhenGiveSuccess() throws{
+    func testCarWebService_WhenGiveSuccess() throws {
         let expectation = self.expectation(description: "Success")
         
         sut.netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self) { response in
@@ -44,7 +44,7 @@ class CarsTests: XCTestCase {
         self.waitForExpectations(timeout: 5)
     }
     
-    func testCarWebService_WhenGiveFail() throws{
+    func testCarWebService_WhenGiveFail() throws {
         let expectation = self.expectation(description: "Fail")
         
         sut.netWorkManager.request(endpoint: .none, parameters: nil, responseType: Car.self) { response in
@@ -60,5 +60,3 @@ class CarsTests: XCTestCase {
         self.waitForExpectations(timeout: 5)
     }
 }
-
-

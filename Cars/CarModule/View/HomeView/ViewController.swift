@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         self.tblCars.dataSource = self
         self.indicator.hidesWhenStopped = true
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.getArticleDetails()
     }
