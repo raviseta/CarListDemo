@@ -39,13 +39,16 @@ class CarListViewController: UIViewController {
         
         indicator.startAnimating()
         if let viewModel = viewModel {
-            viewModel.carListAPI {
-                DispatchQueue.main.async {
-                    self.indicator.stopAnimating()
-                    self.tableCarList.reloadData()
+            Task.init {
+                let result = await viewModel.carListAPI()
+                if result.0 != nil {
+                    DispatchQueue.main.async {
+                        self.indicator.stopAnimating()
+                        self.tableCarList.reloadData()
+                    }
+                } else if result.1 != nil {
+                    self.showAlert(message: result.1)
                 }
-            } failure: { errorMessage in
-                self.showAlert(message: errorMessage)
             }
         }
     }

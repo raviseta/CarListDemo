@@ -10,7 +10,7 @@ import Foundation
 protocol CarListViewModel {
     var totalCount: Int {get}
     var coordinator: CarListCoordinator? {get set}
-    func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void))
+    func carListAPI() async -> (Void?, String?)
     func car(at index: Int) -> Content
     func didSelectCar(at index: Int)
 }
@@ -39,18 +39,18 @@ final class CarViewModel: CarListViewModel {
         coordinator?.gotoDetailScreen(carData: cars[index])
     }
     
-    func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void)) {
+    func carListAPI() async -> (Void?, String?) {
         
-        netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self) { response in
-            switch response {
-            case .success(result: let articles):
-                self.cars.append(contentsOf: articles.content)
-                self.total = self.cars.count
-                success()
-                
-            case .failure(error: let error):
-                failure(error.localizedDescription)
-            }
+        let response =  await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
+        
+        switch response {
+        case .success(result: let articles):
+            self.cars.append(contentsOf: articles.content)
+            self.total = self.cars.count
+            
+            return((), nil)
+        case .failure(error: let error):
+            return(nil, error.localizedDescription)
         }
         
     }

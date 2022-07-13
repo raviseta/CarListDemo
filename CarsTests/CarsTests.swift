@@ -28,35 +28,35 @@ class CarsTests: XCTestCase {
         XCTAssertEqual(url, "https://www.apphusetreach.no/application/119267/article/get_articles_list")
     }
     
-    func testCarWebService_WhenGiveSuccess() throws {
+    func testCarWebService_WhenGiveSuccess() async throws {
         let expectation = self.expectation(description: "Success")
         
-        sut.netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self) { response in
-            switch response {
-                
-            case .success(result: let result):
-                XCTAssertNotNil(result)
-                expectation.fulfill()
-            case .failure(error: _): break
-                
-            }
+        let response = await sut.netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
+        switch response {
+            
+        case .success(result: let result):
+            XCTAssertNotNil(result)
+            expectation.fulfill()
+        case .failure(error: _): break
+            
         }
-        self.waitForExpectations(timeout: 5)
+        
+        await self.waitForExpectations(timeout: 5)
     }
     
-    func testCarWebService_WhenGiveFail() throws {
+    func testCarWebService_WhenGiveFail() async throws {
         let expectation = self.expectation(description: "Fail")
         
-        sut.netWorkManager.request(endpoint: .none, parameters: nil, responseType: Car.self) { response in
-            switch response {
-                
-            case .success(result: _): break
-                
-            case .failure(error: let errorMessage):
-                XCTAssertNotNil(errorMessage)
-                expectation.fulfill()
-            }
+        let response = await sut.netWorkManager.request(endpoint: .none, parameters: nil, responseType: Car.self)
+        switch response {
+            
+        case .success(result: _): break
+            
+        case .failure(error: let errorMessage):
+            XCTAssertNotNil(errorMessage)
+            expectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5)
+        
+        await self.waitForExpectations(timeout: 5)
     }
 }

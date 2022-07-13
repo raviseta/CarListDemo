@@ -21,9 +21,7 @@ protocol NetWorkManagerProtocol {
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
-        responseType: T.Type,
-        completion: @escaping APIResponseHandler<T>
-    )
+        responseType: T.Type) async -> ResponseHandler<T>
 }
 
 final class NetWorkManager: NetWorkManagerProtocol {
@@ -42,47 +40,48 @@ final class NetWorkManager: NetWorkManagerProtocol {
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
-        responseType: T.Type,
-        completion: @escaping APIResponseHandler<T>
-    ) {
-        
-        let parameters = toDictionary(modelObject: parameters as Any)
-        let urlParams = parameters.compactMap({ (key, value) -> String in
-            return "\(key)=\(value)"
-        }).joined(separator: "&")
-        
-        var dataTask: URLSessionDataTask?
-        let defaultSession = URLSession(configuration: .default)
-        
-        dataTask?.cancel()
-        
-        if var urlComponents = URLComponents.init(string: endpoint.getURL()) {
-            urlComponents.query = urlParams
+        responseType: T.Type) async -> ResponseHandler<T> {
             
-            guard let url = urlComponents.url else {
-                return
-            }
+            let parameters = toDictionary(modelObject: parameters as Any)
+            let urlParams = parameters.compactMap({ (key, value) -> String in
+                return "\(key)=\(value)"
+            }).joined(separator: "&")
             
-            guard Reachability.isConnectedToNetwork() else {
-                return
-            }
+            var dataTask: URLSessionDataTask?
+            let defaultSession = URLSession(configuration: .default)
             
-            dataTask = defaultSession.dataTask(with: url) { data, response, error in
+            dataTask?.cancel()
+            
+            if var urlComponents = URLComponents.init(string: endpoint.getURL()) {
+                urlComponents.query = urlParams
                 
-                guard let data = data else {
-                    completion(.failure(error: NSError(domain: "API", code: 404, userInfo: [NSLocalizedDescriptionKey: "Data invalid"])))
-                    return
+                guard let url = urlComponents.url else {
+                    return ResponseHandler.failure(error: NSError(domain: "API", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"]))
                 }
                 
-                do {
-                    let response = try JSONDecoder().decode(responseType.self, from: data)
-                    completion(.success(result: response))
-                } catch let err {
-                    completion(.failure(error: err))
+                guard Reachability.isConnectedToNetwork() else {
+                    return ResponseHandler.failure(error: NSError(domain: "API", code: 500, userInfo: [NSLocalizedDescriptionKey: "Internet not Available"]))
+                }
+                
+                return await withCheckedContinuation { continuation in
+                    dataTask = defaultSession.dataTask(with: url) { data, response, error in
+                        
+                        guard let data1 = data else {
+                            continuation.resume(returning: .failure(error: NSError(domain: "API", code: 404, userInfo: [NSLocalizedDescriptionKey: "Data invalid"])))
+                            return
+                        }
+                        
+                        do {
+                            let response = try JSONDecoder().decode(responseType.self, from: data1)
+                            continuation.resume(returning: .success(result: response))
+                        } catch let err {
+                            continuation.resume(returning: .failure(error: err))
+                        }
+                    }
+                    dataTask?.resume()
                 }
             }
-            dataTask?.resume()
+            return ResponseHandler.failure(error: NSError(domain: "API", code: 500, userInfo: [NSLocalizedDescriptionKey: "Request time out"]))
         }
-    }
     
 }
