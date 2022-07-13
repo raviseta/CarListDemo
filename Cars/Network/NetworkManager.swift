@@ -63,6 +63,10 @@ final class NetWorkManager: NetWorkManagerProtocol {
                 return
             }
             
+            guard Reachability.isConnectedToNetwork() else {
+                return
+            }
+            
             dataTask = defaultSession.dataTask(with: url) { data, response, error in
                 
                 guard let data = data else {

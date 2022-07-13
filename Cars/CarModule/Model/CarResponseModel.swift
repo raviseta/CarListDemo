@@ -29,7 +29,7 @@ struct Content: Decodable {
 // MARK: - ContentDetail
 struct ContentDetail: Codable {
     let type, subject, contentDescription: String
-
+    
     enum CodingKeys: String, CodingKey {
         case type, subject
         case contentDescription = "description"

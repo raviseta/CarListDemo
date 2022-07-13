@@ -8,7 +8,7 @@
 import UIKit
 
 class CarListViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak private var tableCarList: UITableView!
     @IBOutlet weak private var indicator: UIActivityIndicatorView!
@@ -33,13 +33,9 @@ class CarListViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.getArticleDetails()
     }
-        
+    
     // MARK: - Get Article Data
     private func getArticleDetails() {
-        
-        guard Reachability.isConnectedToNetwork() else {
-            return
-        }
         
         indicator.startAnimating()
         

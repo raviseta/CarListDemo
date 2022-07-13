@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class CarListTableCell: UITableViewCell {
-
+    
     @IBOutlet private var imageviewCar: UIImageView!
     @IBOutlet private var lblTitle: UILabel!
     @IBOutlet private var lblDate: UILabel!
@@ -47,9 +47,4 @@ class CarListTableCell: UITableViewCell {
         }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }

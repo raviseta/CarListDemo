@@ -14,7 +14,7 @@ extension UIViewController {
         
         let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
         })
-                
+        
         dialogMessage.addAction(actionOK)
         DispatchQueue.main.async {
             self.present(dialogMessage, animated: true, completion: nil)

@@ -9,7 +9,7 @@ import Foundation
 
 enum Environment {
     case development,
-    production
+         production
 }
 
 class AppEnvironment {

@@ -9,10 +9,10 @@ import XCTest
 @testable import Cars
 
 class CarsTests: XCTestCase {
-
+    
     var sut: CarViewModel!
     var netWorkManager: NetWorkManagerProtocol!
-
+    
     override func setUp() {
         super.setUp()
         sut = CarViewModel()
@@ -22,7 +22,7 @@ class CarsTests: XCTestCase {
         super.tearDown()
         sut = nil
     }
-        
+    
     func testArticleAPIURL() throws {
         let url = APIURL.getCarList.getURL()
         XCTAssertEqual(url, "https://www.apphusetreach.no/application/119267/article/get_articles_list")
@@ -51,7 +51,7 @@ class CarsTests: XCTestCase {
             switch response {
                 
             case .success(result: _): break
-               
+                
             case .failure(error: let errorMessage):
                 XCTAssertNotNil(errorMessage)
                 expectation.fulfill()

@@ -31,7 +31,7 @@ final class CarViewModel: CarListViewModel {
     func car(at index: Int) -> Content {
         return cars[index]
     }
-        
+    
     func carListAPI(success: @escaping(() -> Void), failure: @escaping((String) -> Void)) {
         
         netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self) { response in
@@ -47,5 +47,5 @@ final class CarViewModel: CarListViewModel {
         }
         
     }
-        
+    
 }
