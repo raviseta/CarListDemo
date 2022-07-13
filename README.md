@@ -5,6 +5,7 @@
 - MVVM Architecture.
 - Dependancy Injection.
 - SOLID Principles.
+- Navigation using Coordinator.
 
 ## Includes
 
