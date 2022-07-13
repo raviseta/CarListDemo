@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CarListViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var tblCars: UITableView!
+    @IBOutlet weak private var tableCarList: UITableView!
     @IBOutlet weak private var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
@@ -24,9 +24,9 @@ class ViewController: UIViewController {
     }
     
     private func setupView() {
-        self.tblCars.register(CarListTableCell.className)
-        self.tblCars.delegate = self
-        self.tblCars.dataSource = self
+        self.tableCarList.register(CarListTableCell.className)
+        self.tableCarList.delegate = self
+        self.tableCarList.dataSource = self
         self.indicator.hidesWhenStopped = true
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         viewModel.carListAPI {
             DispatchQueue.main.async {
                 self.indicator.stopAnimating()
-                self.tblCars.reloadData()
+                self.tableCarList.reloadData()
             }
         } failure: { errorMessage in
             self.showAlert(message: errorMessage)
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
 
 // MARK: - Tableview Delegate & DataSource
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension CarListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  viewModel.totalCount
     }

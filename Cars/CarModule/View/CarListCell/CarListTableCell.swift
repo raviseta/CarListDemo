@@ -10,11 +10,11 @@ import Kingfisher
 
 class CarListTableCell: UITableViewCell {
 
-    @IBOutlet var ivCar: UIImageView!
-    @IBOutlet var lblTitle: UILabel!
-    @IBOutlet var lblDate: UILabel!
-    @IBOutlet var lblDescription: UILabel!
-    @IBOutlet weak var viewGradiant: UIView!
+    @IBOutlet private var imageviewCar: UIImageView!
+    @IBOutlet private var lblTitle: UILabel!
+    @IBOutlet private var lblDate: UILabel!
+    @IBOutlet private var lblDescription: UILabel!
+    @IBOutlet weak private var viewGradiant: UIView!
     
     var viewModel: CarCellViewModel? {
         didSet {
@@ -43,7 +43,7 @@ class CarListTableCell: UITableViewCell {
             self.lblDate.text = viewModel.dateTime
             self.lblDescription.text = viewModel.ingress
             let imageURL = URL(string: viewModel.image)
-            self.ivCar.kf.setImage(with: imageURL)
+            self.imageviewCar.kf.setImage(with: imageURL)
         }
     }
     
