@@ -1,3 +1,22 @@
 # CarListDemo
 
-This is simple car listing demo using MVVM with dependancy injection and swift package manager.
+## Architecture concepts used here
+
+- MVVM Architecture.
+- Dependancy Injection.
+- SOLID Principles.
+
+## Includes
+
+- Unit tests using XCTest.
+- Swift package manager.
+
+## Requirements
+
+- Xcode 13.2.1 Swift 5.0+
+
+## How to use app
+
+- Clone respository.
+- Install Pods.
+
