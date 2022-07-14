@@ -11,7 +11,6 @@
 ## Includes
 
 - Unit tests using XCTest.
-- Kingfishe
 
 ## Requirements
 
