@@ -11,7 +11,7 @@
 ## Includes
 
 - Unit tests using XCTest.
-- Swift package manager.
+- Kingfishe
 
 ## Requirements
 
@@ -25,4 +25,10 @@
 
 - Clone respository.
 - Install Pods.
+
+## Future Modification
+
+- Add Swift package manager.
+- Add Analytics.
+- UITest cases using XCUITest.
 
