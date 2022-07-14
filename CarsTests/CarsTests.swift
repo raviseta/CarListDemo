@@ -23,7 +23,7 @@ class CarsTests: XCTestCase {
         sut = nil
     }
     
-    func testArticleAPIURL() throws {
+    func testgetCarURL() throws {
         let url = APIURL.getCarList.getURL()
         XCTAssertEqual(url, "https://www.apphusetreach.no/application/119267/article/get_articles_list")
     }

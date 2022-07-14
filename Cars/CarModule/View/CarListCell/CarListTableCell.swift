@@ -10,7 +10,7 @@ import Kingfisher
 
 class CarListTableCell: UITableViewCell {
     
-    @IBOutlet private var imageviewCar: UIImageView!
+    @IBOutlet weak private var imageviewCar: UIImageView!
     @IBOutlet private var lblTitle: UILabel!
     @IBOutlet private var lblDate: UILabel!
     @IBOutlet private var lblDescription: UILabel!

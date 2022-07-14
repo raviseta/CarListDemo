@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="-1003" y="114"/>
         </scene>
-        <!--Car Detail View Controller-->
+        <!--Car Detail-->
         <scene sceneID="vJj-2L-0Xm">
             <objects>
                 <viewController storyboardIdentifier="CarDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="teI-NT-HD6" customClass="CarDetailViewController" customModule="Cars" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,24 +53,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car descriptionCar descriptionCar descriptionCar descriptionCar descriptionCar description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62Y-bL-iji">
-                                <rect key="frame" x="20" y="94" width="349" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-Vx-cg7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NvM-rS-I2l"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NvM-rS-I2l" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="62Y-bL-iji" secondAttribute="bottom" constant="5" id="hqU-d4-2ef"/>
-                            <constraint firstItem="NvM-rS-I2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="62Y-bL-iji" secondAttribute="trailing" constant="20" id="kXr-sB-IUG"/>
-                            <constraint firstItem="62Y-bL-iji" firstAttribute="top" secondItem="NvM-rS-I2l" secondAttribute="top" constant="50" id="mg9-BO-RTw"/>
-                            <constraint firstItem="62Y-bL-iji" firstAttribute="leading" secondItem="NvM-rS-I2l" secondAttribute="leading" constant="20" id="wCb-Eg-DOg"/>
+                            <constraint firstItem="IDV-Vx-cg7" firstAttribute="leading" secondItem="NvM-rS-I2l" secondAttribute="leading" id="CEF-vA-5Az"/>
+                            <constraint firstItem="NvM-rS-I2l" firstAttribute="bottom" secondItem="IDV-Vx-cg7" secondAttribute="bottom" id="J6J-NB-ES3"/>
+                            <constraint firstItem="NvM-rS-I2l" firstAttribute="trailing" secondItem="IDV-Vx-cg7" secondAttribute="trailing" id="ORk-k6-F1Q"/>
+                            <constraint firstItem="IDV-Vx-cg7" firstAttribute="top" secondItem="NvM-rS-I2l" secondAttribute="top" id="pxP-yZ-p3C"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Car Detail" id="0Wl-Cp-s1f"/>
                     <connections>
-                        <outlet property="lblCarDescription" destination="62Y-bL-iji" id="ziH-Jq-iFR"/>
+                        <outlet property="webView" destination="IDV-Vx-cg7" id="vjs-9Q-iJV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tp-It-qvH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,9 +81,4 @@
             <point key="canvasLocation" x="-223" y="113"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

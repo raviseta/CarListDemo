@@ -10,18 +10,36 @@ import WebKit
 
 class CarDetailViewController: UIViewController {
     
-    @IBOutlet var lblCarDescription: UILabel!
+    // MARK: - Outlets
+    
+    @IBOutlet weak private var webView: WKWebView!
+    
+    // MARK: - Variables
     
     var viewModel: CarDetailViewModelProtocol!
     
+    // MARK: - Initialization
+    
+    init?(coder: NSCoder, viewModel: DetailViewModel) {
+        super.init(coder: coder)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - View Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let webview = WKWebView()
-        webview.frame  = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        self.setupView()
+    }
+    
+    private func setupView() {
         let url = URL.init(string: viewModel.carData?.image ?? "")
         let request = URLRequest(url: url!)
-        webview.load(request)
-        self.view.addSubview(webview)
+        webView.load(request)
     }
     
 }

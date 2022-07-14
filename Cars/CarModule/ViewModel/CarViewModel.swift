@@ -10,7 +10,7 @@ import Foundation
 protocol CarListViewModelProtocol {
     var totalCount: Int {get}
     var coordinator: CarListCoordinator? {get set}
-    func getCar() async -> (Void?, String?)
+    func getCar() async -> (success: Void?, fail: String?)
     func car(at index: Int) -> Content
     func didSelectCar(at index: Int)
 }
@@ -39,7 +39,7 @@ final class CarViewModel: CarListViewModelProtocol {
         coordinator?.gotoDetailScreen(carData: cars[index])
     }
     
-    func getCar() async -> (Void?, String?) {
+    func getCar() async -> (success: Void?, fail: String?) {
         
         let response =  await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
         
