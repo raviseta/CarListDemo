@@ -6,6 +6,7 @@ target 'Cars' do
   
   pod 'SwiftLint'
   pod 'Kingfisher', '~> 7.0'
+  pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
   
   target 'CarsTests' do
     inherit! :search_paths

@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import IHProgressHUD
 
 class CarListViewController: BaseViewController {
     
     // MARK: - Outlets
     @IBOutlet weak private var tableCarList: UITableView!
-    @IBOutlet weak private var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
     var viewModel: CarListViewModelProtocol!
@@ -31,7 +31,6 @@ class CarListViewController: BaseViewController {
         self.tableCarList.register(CarListTableCell.className)
         self.tableCarList.delegate = self
         self.tableCarList.dataSource = self
-        self.indicator.hidesWhenStopped = true
         
         self.getArticleDetails()
     }
@@ -39,13 +38,13 @@ class CarListViewController: BaseViewController {
     // MARK: - Get Article Data
     private func getArticleDetails() {
         
-        indicator.startAnimating()
+        IHProgressHUD.show()
         if let viewModel = viewModel {
             Task.init {
                 let result = await viewModel.getCar()
                 if result.success != nil {
                     DispatchQueue.main.async {
-                        self.indicator.stopAnimating()
+                        IHProgressHUD.dismiss()
                         self.tableCarList.reloadData()
                     }
                 } else if let errorMessage = result.fail {

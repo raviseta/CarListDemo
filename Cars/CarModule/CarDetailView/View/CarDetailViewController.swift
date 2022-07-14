@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import IHProgressHUD
 
 class CarDetailViewController: BaseViewController {
     
@@ -37,9 +38,24 @@ class CarDetailViewController: BaseViewController {
     }
     
     private func setupView() {
+        webView.navigationDelegate = self
+        IHProgressHUD.show()
         let url = URL.init(string: viewModel.carData?.image ?? "")
         let request = URLRequest(url: url!)
         webView.load(request)
+    }
+    
+}
+
+// MARK: - Webkit Navigation delegates
+
+extension CarDetailViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        IHProgressHUD.dismiss()
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        IHProgressHUD.dismiss()
     }
     
 }

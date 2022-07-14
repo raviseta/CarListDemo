@@ -1,24 +1,32 @@
 PODS:
-  - IHProgressHUD (0.1.4)
+  - IHProgressHUD (0.1.6)
   - Kingfisher (7.2.1)
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
-  - IHProgressHUD
+  - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
   - Kingfisher (~> 7.0)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
-    - IHProgressHUD
     - Kingfisher
     - SwiftLint
 
+EXTERNAL SOURCES:
+  IHProgressHUD:
+    :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
+
+CHECKOUT OPTIONS:
+  IHProgressHUD:
+    :commit: c3e0cf90ba1b310073e841de7dc6ef0a2d4899e2
+    :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
+
 SPEC CHECKSUMS:
-  IHProgressHUD: a01846bfbb581c761c79747c67b08387c3bdfae3
+  IHProgressHUD: 3f7d9ff28d4c339d50fce7c32daa26ddfefd8703
   Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: 5f4e991f539b8534f584e667253d79f6a698e373
+PODFILE CHECKSUM: 3426de05827725cf2dccc1a5bdfebb0e85a9927e
 
 COCOAPODS: 1.11.2

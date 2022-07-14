@@ -10,7 +10,6 @@
 		8741DF7E24FCA0220A1AF047 /* Pods_Cars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FDC542503ED8976C776FC0 /* Pods_Cars.framework */; };
 		AC928BA1287E062E00FB0B6F /* CarListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC928BA0287E062E00FB0B6F /* CarListCellModel.swift */; };
 		AC984138287C761200BFBCD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC984137287C761200BFBCD1 /* AppDelegate.swift */; };
-		AC98413A287C761200BFBCD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC984139287C761200BFBCD1 /* SceneDelegate.swift */; };
 		AC98413C287C761200BFBCD1 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98413B287C761200BFBCD1 /* CarListViewController.swift */; };
 		AC98413F287C761200BFBCD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC98413D287C761200BFBCD1 /* Main.storyboard */; };
 		AC984141287C761400BFBCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC984140287C761400BFBCD1 /* Assets.xcassets */; };
@@ -57,7 +56,6 @@
 		AC928BA0287E062E00FB0B6F /* CarListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCellModel.swift; sourceTree = "<group>"; };
 		AC984134287C761200BFBCD1 /* Cars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC984137287C761200BFBCD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC984139287C761200BFBCD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AC98413B287C761200BFBCD1 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		AC98413E287C761200BFBCD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC984140287C761400BFBCD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 		AC984136287C761200BFBCD1 /* Cars */ = {
 			isa = PBXGroup;
 			children = (
-				AC984139287C761200BFBCD1 /* SceneDelegate.swift */,
 				AC984137287C761200BFBCD1 /* AppDelegate.swift */,
 				AC9B74DB28801DFA0009A236 /* BaseView */,
 				AC9967E7287EBC3A00E9E7EA /* Coordinator */,
@@ -520,7 +517,6 @@
 				AC984180287C781200BFBCD1 /* CarViewModel.swift in Sources */,
 				AC9967EF287EBD8B00E9E7EA /* CarDetailViewController.swift in Sources */,
 				AC98417D287C77DB00BFBCD1 /* CarResponseModel.swift in Sources */,
-				AC98413A287C761200BFBCD1 /* SceneDelegate.swift in Sources */,
 				AC98416D287C768400BFBCD1 /* NSObject+Extension.swift in Sources */,
 				AC984174287C771F00BFBCD1 /* AppEnvironment.swift in Sources */,
 				ACED9906287D620B002B3CD2 /* Reachability.swift in Sources */,
