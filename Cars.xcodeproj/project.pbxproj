@@ -220,10 +220,7 @@
 		AC984175287C773600BFBCD1 /* CarModule */ = {
 			isa = PBXGroup;
 			children = (
-				AC9967EA287EBC7E00E9E7EA /* CarListCoordinator */,
-				AC98417E287C77FE00BFBCD1 /* ViewModel */,
-				AC98417B287C77BA00BFBCD1 /* Model */,
-				AC984176287C774100BFBCD1 /* View */,
+				AC9A997F28804EF4001F4C4C /* CarListView */,
 				AC9967ED287EBD5D00E9E7EA /* CarDetailView */,
 			);
 			path = CarModule;
@@ -302,6 +299,17 @@
 				AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */,
 			);
 			path = CarDetailCoordinator;
+			sourceTree = "<group>";
+		};
+		AC9A997F28804EF4001F4C4C /* CarListView */ = {
+			isa = PBXGroup;
+			children = (
+				AC9967EA287EBC7E00E9E7EA /* CarListCoordinator */,
+				AC98417E287C77FE00BFBCD1 /* ViewModel */,
+				AC98417B287C77BA00BFBCD1 /* Model */,
+				AC984176287C774100BFBCD1 /* View */,
+			);
+			path = CarListView;
 			sourceTree = "<group>";
 		};
 		AC9B74DB28801DFA0009A236 /* BaseView */ = {
