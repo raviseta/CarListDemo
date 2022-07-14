@@ -20,6 +20,7 @@
 
 - Kingfisher.
 - SwiftLint.
+- IHProgressHUD.
 
 ## Supports
 
