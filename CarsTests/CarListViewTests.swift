@@ -1,5 +1,5 @@
 //
-//  CarsTests.swift
+//  CarListViewTests.swift
 //  CarsTests
 //
 //  Created by raviseta on 11/07/22.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Cars
 
-class CarsTests: XCTestCase {
+class CarListViewTests: XCTestCase {
     
     var sut: CarViewModel!
     var netWorkManager: NetWorkManagerProtocol!

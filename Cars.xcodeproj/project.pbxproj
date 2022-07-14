@@ -14,7 +14,7 @@
 		AC98413F287C761200BFBCD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC98413D287C761200BFBCD1 /* Main.storyboard */; };
 		AC984141287C761400BFBCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC984140287C761400BFBCD1 /* Assets.xcassets */; };
 		AC984144287C761400BFBCD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC984142287C761400BFBCD1 /* LaunchScreen.storyboard */; };
-		AC98414F287C761400BFBCD1 /* CarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98414E287C761400BFBCD1 /* CarsTests.swift */; };
+		AC98414F287C761400BFBCD1 /* CarListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98414E287C761400BFBCD1 /* CarListViewTests.swift */; };
 		AC984169287C764F00BFBCD1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC984168287C764F00BFBCD1 /* UIViewController+Extension.swift */; };
 		AC98416B287C766800BFBCD1 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98416A287C766800BFBCD1 /* UITableView+Extensions.swift */; };
 		AC98416D287C768400BFBCD1 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98416C287C768400BFBCD1 /* NSObject+Extension.swift */; };
@@ -31,6 +31,7 @@
 		AC9967F3287EBDAB00E9E7EA /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */; };
 		AC9967F6287EBDD600E9E7EA /* CarDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */; };
 		AC9A997E28804CC9001F4C4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A997D28804CC9001F4C4C /* Constants.swift */; };
+		AC9A998128805AB7001F4C4C /* CarDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A998028805AB7001F4C4C /* CarDetailViewTests.swift */; };
 		ACB8774A288006DC00C90FCB /* UIDevice+JailBroken.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */; };
 		ACB8774C28801BB800C90FCB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8774B28801BB800C90FCB /* BaseViewController.swift */; };
 		ACED9906287D620B002B3CD2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED9905287D620B002B3CD2 /* Reachability.swift */; };
@@ -63,7 +64,7 @@
 		AC984143287C761400BFBCD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC984145287C761400BFBCD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC98414A287C761400BFBCD1 /* CarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC98414E287C761400BFBCD1 /* CarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTests.swift; sourceTree = "<group>"; };
+		AC98414E287C761400BFBCD1 /* CarListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewTests.swift; sourceTree = "<group>"; };
 		AC984168287C764F00BFBCD1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AC98416A287C766800BFBCD1 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		AC98416C287C768400BFBCD1 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewModel.swift; sourceTree = "<group>"; };
 		AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCoordinator.swift; sourceTree = "<group>"; };
 		AC9A997D28804CC9001F4C4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AC9A998028805AB7001F4C4C /* CarDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewTests.swift; sourceTree = "<group>"; };
 		ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+JailBroken.swift"; sourceTree = "<group>"; };
 		ACB8774B28801BB800C90FCB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		ACED9905287D620B002B3CD2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -189,7 +191,8 @@
 		AC98414D287C761400BFBCD1 /* CarsTests */ = {
 			isa = PBXGroup;
 			children = (
-				AC98414E287C761400BFBCD1 /* CarsTests.swift */,
+				AC98414E287C761400BFBCD1 /* CarListViewTests.swift */,
+				AC9A998028805AB7001F4C4C /* CarDetailViewTests.swift */,
 			);
 			path = CarsTests;
 			sourceTree = "<group>";
@@ -539,7 +542,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC98414F287C761400BFBCD1 /* CarsTests.swift in Sources */,
+				AC9A998128805AB7001F4C4C /* CarDetailViewTests.swift in Sources */,
+				AC98414F287C761400BFBCD1 /* CarListViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
