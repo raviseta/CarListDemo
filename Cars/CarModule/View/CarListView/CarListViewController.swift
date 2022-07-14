@@ -50,8 +50,8 @@ class CarListViewController: UIViewController {
                         self.indicator.stopAnimating()
                         self.tableCarList.reloadData()
                     }
-                } else if result.fail != nil {
-                    self.showAlert(message: result.1)
+                } else if let errorMessage = result.fail {
+                    self.showAlert(message: errorMessage)
                 }
             }
         }
