@@ -17,6 +17,10 @@
 
 - Xcode 13.2 Swift 5.5+
 
+## Supports
+
+- iPhone Devices. Portrait Mode.
+
 ## How to use app
 
 - Clone respository.
