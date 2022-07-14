@@ -17,6 +17,11 @@
 
 - Xcode 13.2 Swift 5.5+
 
+## Dependencies
+
+- Kingfisher.
+- SwiftLint.
+
 ## Supports
 
 - iPhone Devices. Portrait Mode.
