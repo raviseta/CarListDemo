@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func showAlert(title: String? = "Cars", message: String?) {
+    func showAlert(title: String? = applicationName, message: String?) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in

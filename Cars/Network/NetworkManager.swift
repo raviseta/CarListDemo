@@ -56,18 +56,18 @@ final class NetWorkManager: NetWorkManagerProtocol {
                 urlComponents.query = urlParams
                 
                 guard let url = urlComponents.url else {
-                    return ResponseHandler.failure(error: NSError(domain: "API", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"]))
+                    return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.urlNotValid.rawValue]))
                 }
                 
                 guard Reachability.isConnectedToNetwork() else {
-                    return ResponseHandler.failure(error: NSError(domain: "API", code: 500, userInfo: [NSLocalizedDescriptionKey: "Internet not Available"]))
+                    return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.noInternet.rawValue]))
                 }
                 
                 return await withCheckedContinuation { continuation in
                     dataTask = defaultSession.dataTask(with: url) { data, response, error in
                         
                         guard let data1 = data else {
-                            continuation.resume(returning: .failure(error: NSError(domain: "API", code: 404, userInfo: [NSLocalizedDescriptionKey: "Data invalid"])))
+                            continuation.resume(returning: .failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.notFound.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.dataNotValid.rawValue])))
                             return
                         }
                         
@@ -81,7 +81,7 @@ final class NetWorkManager: NetWorkManagerProtocol {
                     dataTask?.resume()
                 }
             }
-            return ResponseHandler.failure(error: NSError(domain: "API", code: 500, userInfo: [NSLocalizedDescriptionKey: "Request time out"]))
+            return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.requestTimeOut.rawValue]))
         }
     
 }

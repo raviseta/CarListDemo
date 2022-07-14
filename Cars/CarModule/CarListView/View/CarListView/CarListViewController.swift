@@ -21,7 +21,7 @@ class CarListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UIDevice.current.isJailBroken {
-            self.showAlert(message: "App can not run on jail broken devices.")
+            self.showAlert(message: ErrorMessage.errorDeviceJailBroken.rawValue)
             return
         }
         self.setupView()
