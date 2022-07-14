@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CarListViewController: UIViewController {
+class CarListViewController: BaseViewController {
     
     // MARK: - Outlets
     @IBOutlet weak private var tableCarList: UITableView!
@@ -20,7 +20,7 @@ class CarListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (UIDevice.current.isJailBroken) {
+        if UIDevice.current.isJailBroken {
             self.showAlert(message: "App can not run on jail broken devices.")
             return
         }
@@ -33,8 +33,6 @@ class CarListViewController: UIViewController {
         self.tableCarList.dataSource = self
         self.indicator.hidesWhenStopped = true
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
         self.getArticleDetails()
     }
     

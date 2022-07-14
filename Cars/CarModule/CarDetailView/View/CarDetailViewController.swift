@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class CarDetailViewController: UIViewController {
+class CarDetailViewController: BaseViewController {
     
     // MARK: - Outlets
     

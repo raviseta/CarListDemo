@@ -32,6 +32,7 @@
 		AC9967F3287EBDAB00E9E7EA /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */; };
 		AC9967F6287EBDD600E9E7EA /* CarDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */; };
 		ACB8774A288006DC00C90FCB /* UIDevice+JailBroken.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */; };
+		ACB8774C28801BB800C90FCB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8774B28801BB800C90FCB /* BaseViewController.swift */; };
 		ACED9906287D620B002B3CD2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED9905287D620B002B3CD2 /* Reachability.swift */; };
 		D6B83A21AF4DEA79083F130B /* Pods_CarsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8737D5F3629B8805E52C4C /* Pods_CarsTests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewModel.swift; sourceTree = "<group>"; };
 		AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCoordinator.swift; sourceTree = "<group>"; };
 		ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+JailBroken.swift"; sourceTree = "<group>"; };
+		ACB8774B28801BB800C90FCB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		ACED9905287D620B002B3CD2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CC3639454CB723AEC8F2E03D /* Pods-Cars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars.debug.xcconfig"; path = "Target Support Files/Pods-Cars/Pods-Cars.debug.xcconfig"; sourceTree = "<group>"; };
 		CE0CEE3CCDEACB501C33C5D2 /* Pods_Cars_CarsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cars_CarsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 			children = (
 				AC984139287C761200BFBCD1 /* SceneDelegate.swift */,
 				AC984137287C761200BFBCD1 /* AppDelegate.swift */,
+				AC9B74DB28801DFA0009A236 /* BaseView */,
 				AC9967E7287EBC3A00E9E7EA /* Coordinator */,
 				AC984175287C773600BFBCD1 /* CarModule */,
 				AC98416E287C769700BFBCD1 /* Network */,
@@ -299,6 +302,14 @@
 				AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */,
 			);
 			path = CarDetailCoordinator;
+			sourceTree = "<group>";
+		};
+		AC9B74DB28801DFA0009A236 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				ACB8774B28801BB800C90FCB /* BaseViewController.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,6 +508,7 @@
 				AC984169287C764F00BFBCD1 /* UIViewController+Extension.swift in Sources */,
 				AC98413C287C761200BFBCD1 /* CarListViewController.swift in Sources */,
 				AC984170287C76CC00BFBCD1 /* NetworkManager.swift in Sources */,
+				ACB8774C28801BB800C90FCB /* BaseViewController.swift in Sources */,
 				AC928BA1287E062E00FB0B6F /* CarListCellModel.swift in Sources */,
 				ACB8774A288006DC00C90FCB /* UIDevice+JailBroken.swift in Sources */,
 				AC984172287C770300BFBCD1 /* APIURL.swift in Sources */,
