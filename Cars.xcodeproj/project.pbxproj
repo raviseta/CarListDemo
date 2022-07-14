@@ -31,6 +31,7 @@
 		AC9967EF287EBD8B00E9E7EA /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967EE287EBD8B00E9E7EA /* CarDetailViewController.swift */; };
 		AC9967F3287EBDAB00E9E7EA /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */; };
 		AC9967F6287EBDD600E9E7EA /* CarDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */; };
+		ACB8774A288006DC00C90FCB /* UIDevice+JailBroken.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */; };
 		ACED9906287D620B002B3CD2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED9905287D620B002B3CD2 /* Reachability.swift */; };
 		D6B83A21AF4DEA79083F130B /* Pods_CarsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8737D5F3629B8805E52C4C /* Pods_CarsTests.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		AC9967EE287EBD8B00E9E7EA /* CarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
 		AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewModel.swift; sourceTree = "<group>"; };
 		AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCoordinator.swift; sourceTree = "<group>"; };
+		ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+JailBroken.swift"; sourceTree = "<group>"; };
 		ACED9905287D620B002B3CD2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CC3639454CB723AEC8F2E03D /* Pods-Cars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars.debug.xcconfig"; path = "Target Support Files/Pods-Cars/Pods-Cars.debug.xcconfig"; sourceTree = "<group>"; };
 		CE0CEE3CCDEACB501C33C5D2 /* Pods_Cars_CarsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cars_CarsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				AC984168287C764F00BFBCD1 /* UIViewController+Extension.swift */,
 				AC98416A287C766800BFBCD1 /* UITableView+Extensions.swift */,
 				AC98416C287C768400BFBCD1 /* NSObject+Extension.swift */,
+				ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				AC98413C287C761200BFBCD1 /* CarListViewController.swift in Sources */,
 				AC984170287C76CC00BFBCD1 /* NetworkManager.swift in Sources */,
 				AC928BA1287E062E00FB0B6F /* CarListCellModel.swift in Sources */,
+				ACB8774A288006DC00C90FCB /* UIDevice+JailBroken.swift in Sources */,
 				AC984172287C770300BFBCD1 /* APIURL.swift in Sources */,
 				AC984179287C776800BFBCD1 /* CarListTableCell.swift in Sources */,
 				AC9967F3287EBDAB00E9E7EA /* CarDetailViewModel.swift in Sources */,
