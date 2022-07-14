@@ -21,7 +21,7 @@ class CarDetailCoordinator: Coordinator {
     
     func gotoCarDetailViewController(carData: Content) {
         let carDetailViewModel = DetailViewModel(carData: carData)
-        let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "CarDetailViewController", creator: { coder -> CarDetailViewController? in
+        let detailVC = UIStoryboard(name: StoryboardName.main.rawValue, bundle: .main).instantiateViewController(identifier: "CarDetailViewController", creator: { coder -> CarDetailViewController? in
             CarDetailViewController(coder: coder, viewModel: carDetailViewModel)
         })
         navigationController.pushViewController(detailVC, animated: true)
