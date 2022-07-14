@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol CarDetailViewModel {
+protocol CarDetailViewModelProtocol {
     var carData: Content? {get set}
 }
 
-final class DetailViewModel: CarDetailViewModel {
+final class DetailViewModel: CarDetailViewModelProtocol {
     
     var carData: Content?
     

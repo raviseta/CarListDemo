@@ -12,7 +12,7 @@ class CarDetailViewController: UIViewController {
     
     @IBOutlet var lblCarDescription: UILabel!
     
-    var viewModel: CarDetailViewModel!
+    var viewModel: CarDetailViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

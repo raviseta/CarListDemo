@@ -14,7 +14,7 @@ class CarListViewController: UIViewController {
     @IBOutlet weak private var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
-    var viewModel: CarListViewModel!
+    var viewModel: CarListViewModelProtocol!
     
     // MARK: - View Cycle
     
@@ -40,7 +40,7 @@ class CarListViewController: UIViewController {
         indicator.startAnimating()
         if let viewModel = viewModel {
             Task.init {
-                let result = await viewModel.carListAPI()
+                let result = await viewModel.getCar()
                 if result.0 != nil {
                     DispatchQueue.main.async {
                         self.indicator.stopAnimating()

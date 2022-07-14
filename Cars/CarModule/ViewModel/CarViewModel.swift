@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol CarListViewModel {
+protocol CarListViewModelProtocol {
     var totalCount: Int {get}
     var coordinator: CarListCoordinator? {get set}
-    func carListAPI() async -> (Void?, String?)
+    func getCar() async -> (Void?, String?)
     func car(at index: Int) -> Content
     func didSelectCar(at index: Int)
 }
 
-final class CarViewModel: CarListViewModel {
+final class CarViewModel: CarListViewModelProtocol {
     
     var netWorkManager: NetWorkManagerProtocol!
     var coordinator: CarListCoordinator?
@@ -39,7 +39,7 @@ final class CarViewModel: CarListViewModel {
         coordinator?.gotoDetailScreen(carData: cars[index])
     }
     
-    func carListAPI() async -> (Void?, String?) {
+    func getCar() async -> (Void?, String?) {
         
         let response =  await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
         
