@@ -34,7 +34,6 @@
 		AC9967EF287EBD8B00E9E7EA /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967EE287EBD8B00E9E7EA /* CarDetailViewController.swift */; };
 		AC9967F3287EBDAB00E9E7EA /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F2287EBDAB00E9E7EA /* CarDetailViewModel.swift */; };
 		AC9967F6287EBDD600E9E7EA /* CarDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967F5287EBDD600E9E7EA /* CarDetailCoordinator.swift */; };
-		ACED9904287D5FFB002B3CD2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ACED9903287D5FFB002B3CD2 /* Kingfisher */; };
 		ACED9906287D620B002B3CD2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED9905287D620B002B3CD2 /* Reachability.swift */; };
 		D6B83A21AF4DEA79083F130B /* Pods_CarsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8737D5F3629B8805E52C4C /* Pods_CarsTests.framework */; };
 /* End PBXBuildFile section */
@@ -103,7 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACED9904287D5FFB002B3CD2 /* Kingfisher in Frameworks */,
 				8741DF7E24FCA0220A1AF047 /* Pods_Cars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,12 +191,12 @@
 		AC984136287C761200BFBCD1 /* Cars */ = {
 			isa = PBXGroup;
 			children = (
+				AC984139287C761200BFBCD1 /* SceneDelegate.swift */,
+				AC984137287C761200BFBCD1 /* AppDelegate.swift */,
 				AC9967E7287EBC3A00E9E7EA /* Coordinator */,
 				AC984175287C773600BFBCD1 /* CarModule */,
 				AC98416E287C769700BFBCD1 /* Network */,
 				AC984167287C763000BFBCD1 /* Utils */,
-				AC984137287C761200BFBCD1 /* AppDelegate.swift */,
-				AC984139287C761200BFBCD1 /* SceneDelegate.swift */,
 				AC98413D287C761200BFBCD1 /* Main.storyboard */,
 				AC984140287C761400BFBCD1 /* Assets.xcassets */,
 				AC984142287C761400BFBCD1 /* LaunchScreen.storyboard */,
@@ -344,6 +342,7 @@
 				AC984131287C761200BFBCD1 /* Frameworks */,
 				AC984132287C761200BFBCD1 /* Resources */,
 				AC981228287D916A006CD7C2 /* ShellScript */,
+				8CD9911A291F302FF8D9BB13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -351,7 +350,6 @@
 			);
 			name = Cars;
 			packageProductDependencies = (
-				ACED9903287D5FFB002B3CD2 /* Kingfisher */,
 			);
 			productName = Cars;
 			productReference = AC984134287C761200BFBCD1 /* Cars.app */;
@@ -384,6 +382,7 @@
 				AC984150287C761500BFBCD1 /* Sources */,
 				AC984151287C761500BFBCD1 /* Frameworks */,
 				AC984152287C761500BFBCD1 /* Resources */,
+				B260A37B13712EA606BD57DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,7 +427,6 @@
 			);
 			mainGroup = AC98412B287C761200BFBCD1;
 			packageReferences = (
-				ACED9902287D5FFB002B3CD2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = AC984135287C761200BFBCD1 /* Products */;
 			projectDirPath = "";
@@ -514,6 +512,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8CD9911A291F302FF8D9BB13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cars/Pods-Cars-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cars/Pods-Cars-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cars/Pods-Cars-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AC981228287D916A006CD7C2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -530,6 +545,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		B260A37B13712EA606BD57DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cars-CarsUITests/Pods-Cars-CarsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cars-CarsUITests/Pods-Cars-CarsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cars-CarsUITests/Pods-Cars-CarsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F39FF2083885BADABC54655B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -922,25 +954,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		ACED9902287D5FFB002B3CD2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		ACED9903287D5FFB002B3CD2 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ACED9902287D5FFB002B3CD2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC98412C287C761200BFBCD1 /* Project object */;
 }
