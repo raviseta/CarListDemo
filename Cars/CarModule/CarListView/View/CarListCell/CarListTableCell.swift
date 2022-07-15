@@ -43,7 +43,7 @@ class CarListTableCell: UITableViewCell {
             self.lblDate.text = viewModel.dateTime
             self.lblDescription.text = viewModel.ingress
             let imageURL = URL(string: viewModel.image)
-            self.imageviewCar.kf.setImage(with: imageURL)
+            self.imageviewCar.kf.setImage(with: imageURL, placeholder: UIImage.init(named: "car-placeholder"), options: nil, completionHandler: nil)
         }
     }
     
