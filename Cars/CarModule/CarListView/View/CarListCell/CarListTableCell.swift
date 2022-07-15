@@ -25,15 +25,18 @@ class CarListTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         DispatchQueue.main.async {
-            let layer = CAGradientLayer()
-            layer.frame = CGRect(x: 0, y: 0, width: self.viewGradiant.frame.width, height: self.viewGradiant.frame.height)
-            layer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor, UIColor.black.withAlphaComponent(0.82).cgColor, UIColor.black.withAlphaComponent(1.0).cgColor]
-            layer.locations = [0, 0.2, 1]
-            layer.startPoint = CGPoint(x: 0.0, y: 0.0)
-            layer.endPoint = CGPoint(x: 0.0, y: 1.0)
-            self.viewGradiant.layer.insertSublayer(layer, at: 0)
+            self.overLayEffect(gradiantView: self.viewGradiant)
         }
-        
+    }
+    
+    private func overLayEffect(gradiantView: UIView) {
+        let layer = CAGradientLayer()
+        layer.frame = CGRect(x: 0, y: 0, width: gradiantView.frame.width, height: gradiantView.frame.height)
+        layer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor, UIColor.black.withAlphaComponent(0.82).cgColor, UIColor.black.withAlphaComponent(1.0).cgColor]
+        layer.locations = [0, 0.2, 1]
+        layer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        layer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradiantView.layer.insertSublayer(layer, at: 0)
     }
     
     // MARK: - BindData
