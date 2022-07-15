@@ -11,9 +11,9 @@ import Kingfisher
 class CarListTableCell: UITableViewCell {
     
     @IBOutlet weak private var imageviewCar: UIImageView!
-    @IBOutlet private var lblTitle: UILabel!
-    @IBOutlet private var lblDate: UILabel!
-    @IBOutlet private var lblDescription: UILabel!
+    @IBOutlet weak private var lblTitle: UILabel!
+    @IBOutlet weak private var lblDate: UILabel!
+    @IBOutlet weak private var lblDescription: UILabel!
     @IBOutlet weak private var viewGradiant: UIView!
     
     var viewModel: CarCellViewModel? {
