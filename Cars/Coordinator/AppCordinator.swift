@@ -12,6 +12,12 @@ protocol Coordinator {
     func start()
 }
 
+extension Coordinator {
+    func start() {
+        
+    }
+}
+
 final class AppCoordinator: Coordinator {
     var window: UIWindow
 

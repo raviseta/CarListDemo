@@ -10,7 +10,7 @@ import UIKit
 
 class CarListCoordinator: Coordinator {
     
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -19,14 +19,18 @@ class CarListCoordinator: Coordinator {
     func start() {
         
         let carList: CarListViewController = .instantiate()
-        let viewModel = CarViewModel()
+        let viewModel = CarListViewModel()
         viewModel.coordinator = self
         carList.viewModel = viewModel
-        navigationController.setViewControllers([carList], animated: false)
+        navigationController?.setViewControllers([carList], animated: false)
     }
     
     func gotoDetailScreen(carData: Content) {
-        let detailCoordinator = CarDetailCoordinator(navigationController: navigationController)
-        detailCoordinator.gotoCarDetailViewController(carData: carData)
+        if let navigationController = navigationController {
+            let detailCoordinator = CarDetailCoordinator(navigationController: navigationController, carData: carData)
+            let detailVC = detailCoordinator.gotoCarDetailViewController()
+            navigationController.pushViewController(detailVC, animated: true)
+        }
+       
     }
 }

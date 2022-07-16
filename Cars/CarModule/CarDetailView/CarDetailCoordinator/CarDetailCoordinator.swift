@@ -11,20 +11,18 @@ import UIKit
 class CarDetailCoordinator: Coordinator {
     
     private var navigationController: UINavigationController
+    let carData: Content
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, carData: Content) {
         self.navigationController = navigationController
+        self.carData = carData
     }
     
-    func start() {
-    }
-    
-    func gotoCarDetailViewController(carData: Content) {
-        let carDetailViewModel = DetailViewModel(carData: carData)
-        let detailVC = UIStoryboard(name: StoryboardName.main.rawValue, bundle: .main).instantiateViewController(identifier: CarDetailViewController.className, creator: { coder -> CarDetailViewController? in
-            CarDetailViewController(coder: coder, viewModel: carDetailViewModel)
-        })
-        navigationController.pushViewController(detailVC, animated: true)
+    func gotoCarDetailViewController() -> UIViewController {
+        let cardetailVC: CarDetailViewController = .instantiate()
+        let carDetailViewModel = CarDetailViewModel(carData: carData)
+        cardetailVC.viewModel = carDetailViewModel
+        return cardetailVC
     }
     
 }

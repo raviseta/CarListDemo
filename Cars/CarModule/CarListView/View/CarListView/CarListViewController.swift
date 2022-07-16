@@ -48,6 +48,7 @@ class CarListViewController: BaseViewController {
             }
             
             viewModel.showError = { [weak self] errorMessage in
+                IHProgressHUD.dismiss()
                 self?.showAlert(message: errorMessage)
             }
         }

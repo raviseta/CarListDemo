@@ -24,7 +24,7 @@
 		AC984179287C776800BFBCD1 /* CarListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC984177287C776800BFBCD1 /* CarListTableCell.swift */; };
 		AC98417A287C776800BFBCD1 /* CarListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC984178287C776800BFBCD1 /* CarListTableCell.xib */; };
 		AC98417D287C77DB00BFBCD1 /* CarResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98417C287C77DB00BFBCD1 /* CarResponseModel.swift */; };
-		AC984180287C781200BFBCD1 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98417F287C781200BFBCD1 /* CarViewModel.swift */; };
+		AC984180287C781200BFBCD1 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98417F287C781200BFBCD1 /* CarListViewModel.swift */; };
 		AC9967E9287EBC5400E9E7EA /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967E8287EBC5400E9E7EA /* AppCordinator.swift */; };
 		AC9967EC287EBCA200E9E7EA /* CarListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967EB287EBCA200E9E7EA /* CarListCoordinator.swift */; };
 		AC9967EF287EBD8B00E9E7EA /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9967EE287EBD8B00E9E7EA /* CarDetailViewController.swift */; };
@@ -74,7 +74,7 @@
 		AC984177287C776800BFBCD1 /* CarListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListTableCell.swift; sourceTree = "<group>"; };
 		AC984178287C776800BFBCD1 /* CarListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListTableCell.xib; sourceTree = "<group>"; };
 		AC98417C287C77DB00BFBCD1 /* CarResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarResponseModel.swift; sourceTree = "<group>"; };
-		AC98417F287C781200BFBCD1 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		AC98417F287C781200BFBCD1 /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
 		AC9967E8287EBC5400E9E7EA /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
 		AC9967EB287EBCA200E9E7EA /* CarListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCoordinator.swift; sourceTree = "<group>"; };
 		AC9967EE287EBD8B00E9E7EA /* CarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		AC98417E287C77FE00BFBCD1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AC98417F287C781200BFBCD1 /* CarViewModel.swift */,
+				AC98417F287C781200BFBCD1 /* CarListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				AC9967F6287EBDD600E9E7EA /* CarDetailCoordinator.swift in Sources */,
 				AC984138287C761200BFBCD1 /* AppDelegate.swift in Sources */,
 				AC9967EC287EBCA200E9E7EA /* CarListCoordinator.swift in Sources */,
-				AC984180287C781200BFBCD1 /* CarViewModel.swift in Sources */,
+				AC984180287C781200BFBCD1 /* CarListViewModel.swift in Sources */,
 				AC9967EF287EBD8B00E9E7EA /* CarDetailViewController.swift in Sources */,
 				AC98417D287C77DB00BFBCD1 /* CarResponseModel.swift in Sources */,
 				AC98416D287C768400BFBCD1 /* NSObject+Extension.swift in Sources */,

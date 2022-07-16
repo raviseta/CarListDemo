@@ -10,12 +10,12 @@ import XCTest
 
 class CarListViewTests: XCTestCase {
     
-    var sut: CarViewModel!
+    var sut: CarListViewModel!
     var netWorkManager: NetWorkManagerProtocol!
     
     override func setUp() {
         super.setUp()
-        sut = CarViewModel()
+        sut = CarListViewModel()
     }
     
     override func tearDown() {

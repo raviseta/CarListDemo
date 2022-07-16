@@ -17,7 +17,7 @@ protocol CarListViewModelProtocol {
     var showError: ((String) -> Void)? { get set }
 }
 
-final class CarViewModel: CarListViewModelProtocol {
+final class CarListViewModel: CarListViewModelProtocol {
     
     var reloadTableView: (() -> Void)?
     var showError: ((String) -> Void)?

@@ -10,8 +10,5 @@ extension NSObject {
     @objc class var className: String {
         return String(describing: self)
     }
-    
-    class var bundle: Bundle {
-        return Bundle(for: self)
-    }
+
 }
