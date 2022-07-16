@@ -10,13 +10,17 @@ import Foundation
 protocol CarListViewModelProtocol {
     var totalCount: Int {get}
     var coordinator: CarListCoordinator? {get set}
-    func getCar() async -> (success: Void?, fail: String?)
+    func getCar() async
     func car(at index: Int) -> Content
     func didSelectCar(at index: Int)
+    var reloadTableView: (() -> Void)? { get set }
+    var showError: ((String) -> Void)? { get set }
 }
 
 final class CarViewModel: CarListViewModelProtocol {
     
+    var reloadTableView: (() -> Void)?
+    var showError: ((String) -> Void)?
     var netWorkManager: NetWorkManagerProtocol!
     var coordinator: CarListCoordinator?
     
@@ -39,18 +43,18 @@ final class CarViewModel: CarListViewModelProtocol {
         coordinator?.gotoDetailScreen(carData: cars[index])
     }
     
-    func getCar() async -> (success: Void?, fail: String?) {
+    func getCar() async {
         
         let response =  await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
         
         switch response {
-        case .success(result: let articles):
-            self.cars.append(contentsOf: articles.content)
+        case .success(result: let carList):
+            self.cars.append(contentsOf: carList.content)
             self.total = self.cars.count
-            
-            return((), nil)
+            self.reloadTableView?()
+          
         case .failure(error: let error):
-            return(nil, error.localizedDescription)
+            self.showError?(error.localizedDescription)
         }
         
     }

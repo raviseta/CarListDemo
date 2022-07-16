@@ -66,13 +66,13 @@ final class NetWorkManager: NetWorkManagerProtocol {
                 return await withCheckedContinuation { continuation in
                     dataTask = defaultSession.dataTask(with: url) { data, response, error in
                         
-                        guard let data1 = data else {
+                        guard let data = data else {
                             continuation.resume(returning: .failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.notFound.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.dataNotValid.rawValue])))
                             return
                         }
                         
                         do {
-                            let response = try JSONDecoder().decode(responseType.self, from: data1)
+                            let response = try JSONDecoder().decode(responseType.self, from: data)
                             continuation.resume(returning: .success(result: response))
                         } catch let err {
                             continuation.resume(returning: .failure(error: err))

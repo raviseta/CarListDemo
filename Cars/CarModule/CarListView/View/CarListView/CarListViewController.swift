@@ -28,24 +28,27 @@ class CarListViewController: BaseViewController {
         self.tableCarList.delegate = self
         self.tableCarList.dataSource = self
         
-        self.getArticleDetails()
+        self.getCar()
     }
     
     // MARK: - Get Article Data
-    private func getArticleDetails() {
+    private func getCar() {
         
         IHProgressHUD.show()
-        if let viewModel = viewModel {
+        if var viewModel = viewModel {
             Task.init {
-                let result = await viewModel.getCar()
-                if result.success != nil {
-                    DispatchQueue.main.async {
-                        IHProgressHUD.dismiss()
-                        self.tableCarList.reloadData()
-                    }
-                } else if let errorMessage = result.fail {
-                    self.showAlert(message: errorMessage)
+                await viewModel.getCar()
+            }
+            
+            viewModel.reloadTableView = { [weak self] in
+                DispatchQueue.main.async {
+                    IHProgressHUD.dismiss()
+                    self?.tableCarList.reloadData()
                 }
+            }
+            
+            viewModel.showError = { [weak self] errorMessage in
+                self?.showAlert(message: errorMessage)
             }
         }
     }
