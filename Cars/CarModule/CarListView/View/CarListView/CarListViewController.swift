@@ -31,7 +31,8 @@ class CarListViewController: BaseViewController {
         self.getCar()
     }
     
-    // MARK: - Get Article Data
+    // MARK: - Get Cars
+    
     private func getCar() {
         
         IHProgressHUD.show()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Article
+// MARK: - Car
 struct Car: Decodable {
     let status: String
     let content: [Content]
