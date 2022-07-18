@@ -36,4 +36,5 @@
 - Add Swift package manager.
 - Add Analytics.
 - UITest cases using XCUITest.
+- Snapshot Testing.
 
