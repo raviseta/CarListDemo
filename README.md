@@ -8,7 +8,7 @@ This is car list application. I have used a public API for network calls and fet
 - SOLID Principles.
 - Navigation using Coordinator.
 - Network call using async/await.
-- Code coverage with unit testing : ~83%
+- Code coverage with unit testing : ~78%
 
 ## Includes
 
