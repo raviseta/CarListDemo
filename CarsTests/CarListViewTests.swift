@@ -72,7 +72,7 @@ class CarListViewTests: XCTestCase {
                               image: "https://www.apphusetreach.no/sites/default/files/audi_q7.jpg",
                               created: 1511968425,
                               changed: 1534311497)
-        let isPushed: ()?  = sut.coordinator?.gotoDetailScreen(carData: carData)
+        let isPushed: ()?  = sut.carListCoordinator?.gotoDetailScreen(carData: carData)
         XCTAssertNotNil(isPushed)
     }
 

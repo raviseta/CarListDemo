@@ -9,12 +9,13 @@ import Foundation
 
 protocol CarListViewModelProtocol {
     var totalCount: Int {get}
-    var coordinator: CarListCoordinator? {get set}
+    var carListCoordinator: CarListCoordinator? {get set}
     func getCar() async
     func car(at index: Int) -> Content
     func didSelectCar(at index: Int)
     var reloadTableView: (() -> Void)? { get set }
     var showError: ((String) -> Void)? { get set }
+    func getCarList()
 }
 
 final class CarListViewModel: CarListViewModelProtocol {
@@ -22,26 +23,32 @@ final class CarListViewModel: CarListViewModelProtocol {
     var reloadTableView: (() -> Void)?
     var showError: ((String) -> Void)?
     var netWorkManager: NetWorkManagerProtocol!
-    var coordinator: CarListCoordinator?
+    var carListCoordinator: CarListCoordinator?
     
-    private var cars = [Content]()
-    private var total = 0
+    private var arrayCarList = [Content]()
+    private var totalCarItems = 0
     
     var totalCount: Int {
-        return total
+        return totalCarItems
     }
     
     init(netWorkManager: NetWorkManagerProtocol = NetWorkManager(), coordinator: CarListCoordinator) {
         self.netWorkManager = netWorkManager
-        self.coordinator = coordinator
+        self.carListCoordinator = coordinator
     }
     
     func car(at index: Int) -> Content {
-        return cars[index]
+        return arrayCarList[index]
     }
     
     func didSelectCar(at index: Int) {
-        coordinator?.gotoDetailScreen(carData: cars[index])
+        carListCoordinator?.gotoDetailScreen(carData: arrayCarList[index])
+    }
+    
+    func getCarList() {
+        Task.init {
+            await getCar()
+        }
     }
     
     func getCar() async {
@@ -50,8 +57,8 @@ final class CarListViewModel: CarListViewModelProtocol {
         
         switch response {
         case .success(result: let carList):
-            self.cars.append(contentsOf: carList.content)
-            self.total = self.cars.count
+            self.arrayCarList.append(contentsOf: carList.content)
+            self.totalCarItems = self.arrayCarList.count
             self.reloadTableView?()
             
         case .failure(error: let error):

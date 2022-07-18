@@ -14,12 +14,12 @@ class CarListViewController: BaseViewController {
     @IBOutlet weak private var tableCarList: UITableView!
     
     // MARK: - Variables
-    var viewModel: CarListViewModelProtocol!
+    private var carListViewModel: CarListViewModelProtocol!
         
     // MARK: - Initialization
     
-    init?(coder: NSCoder, viewModel: CarListViewModel) {
-        self.viewModel = viewModel
+    init?(coder: NSCoder, carListviewModel: CarListViewModel) {
+        self.carListViewModel = carListviewModel
         super.init(coder: coder)
     }
     
@@ -47,10 +47,8 @@ class CarListViewController: BaseViewController {
     private func getCar() {
         
         IHProgressHUD.show()
-        if var viewModel = viewModel {
-            Task.init {
-                await viewModel.getCar()
-            }
+        if var viewModel = carListViewModel {
+            viewModel.getCarList()
             
             viewModel.reloadTableView = { [weak self] in
                 DispatchQueue.main.async {
@@ -71,19 +69,19 @@ class CarListViewController: BaseViewController {
 
 extension CarListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  viewModel.totalCount
+        return  carListViewModel.totalCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CarListTableCell.className, for: indexPath) as? CarListTableCell else {
             fatalError("CarListTableCell not found")
         }
-        let data = viewModel.car(at: indexPath.row)
+        let data = carListViewModel.car(at: indexPath.row)
         cell.viewModel = CarCellViewModel(viewModel: data)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectCar(at: indexPath.row)
+        carListViewModel.didSelectCar(at: indexPath.row)
     }
 }
