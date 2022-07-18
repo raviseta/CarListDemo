@@ -10,7 +10,6 @@ import Foundation
 protocol CarListViewModelProtocol {
     var numberOfRows: Int {get}
     var carListCoordinator: CarListCoordinator? {get set}
-    func getCar() async
     func carItem(at index: Int) -> Content
     func didSelectCar(at index: Int)
     var reloadTableView: (() -> Void)? { get set }
@@ -51,7 +50,7 @@ final class CarListViewModel: CarListViewModelProtocol {
         }
     }
     
-    func getCar() async {
+    private func getCar() async {
         
         let response =  await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
         
