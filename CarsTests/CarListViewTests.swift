@@ -12,10 +12,12 @@ class CarListViewTests: XCTestCase {
     
     var sut: CarListViewModel!
     var netWorkManager: NetWorkManagerProtocol!
+    let navigationController = UINavigationController()
     
     override func setUp() {
         super.setUp()
-        sut = CarListViewModel()
+        let carListCoordinator = CarListCoordinator(navigationController: navigationController)
+        sut = CarListViewModel(coordinator: carListCoordinator)
     }
     
     override func tearDown() {
@@ -59,4 +61,19 @@ class CarListViewTests: XCTestCase {
         
         await self.waitForExpectations(timeout: 5)
     }
+    
+    func testCarDetailPushed_Called() {
+        let carData = Content(id: 119302,
+                              title: "Q7 - Greatness starts, when you don\'t stop.",
+                              dateTime: "25.05.2018 14:13",
+                              tags: [],
+                              content: [],
+                              ingress: "The Audi Q7 is the result of an ambitious idea: never cease to improve.",
+                              image: "https://www.apphusetreach.no/sites/default/files/audi_q7.jpg",
+                              created: 1511968425,
+                              changed: 1534311497)
+        let isPushed: ()?  = sut.coordinator?.gotoDetailScreen(carData: carData)
+        XCTAssertNotNil(isPushed)
+    }
+
 }

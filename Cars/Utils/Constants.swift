@@ -29,3 +29,7 @@ enum ErrorCode: Int {
     case intenalServerError = 500
     case notFound = 404
 }
+
+enum Images: String {
+    case placeholderImage = "car-placeholder"
+}

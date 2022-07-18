@@ -17,12 +17,11 @@ class CarListCoordinator: Coordinator {
     }
     
     func start() {
-        
-        let carList: CarListViewController = .instantiate()
-        let viewModel = CarListViewModel()
-        viewModel.coordinator = self
-        carList.viewModel = viewModel
-        navigationController?.setViewControllers([carList], animated: false)
+        let viewModel = CarListViewModel(coordinator: self)
+        let cardetailVC = UIStoryboard(name: StoryboardName.main.rawValue, bundle: .main).instantiateViewController(identifier: CarListViewController.className, creator: { coder -> CarListViewController? in
+            CarListViewController(coder: coder, viewModel: viewModel)
+        })
+        navigationController?.setViewControllers([cardetailVC], animated: false)
     }
     
     func gotoDetailScreen(carData: Content) {
@@ -31,6 +30,6 @@ class CarListCoordinator: Coordinator {
             let detailVC = detailCoordinator.gotoCarDetailViewController()
             navigationController.pushViewController(detailVC, animated: true)
         }
-       
+        
     }
 }

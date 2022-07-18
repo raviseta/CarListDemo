@@ -22,16 +22,19 @@ public class Reachability {
             }
         }
         
-        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
-        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
-            return false
+        if let defaultRouteReachability = defaultRouteReachability {
+            var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+            if SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) == false {
+                return false
+            }
+            
+            let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+            let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+            let ret = (isReachable && !needsConnection)
+            
+            return ret
         }
-        
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        let ret = (isReachable && !needsConnection)
-        
-        return ret
+        return false
         
     }
 }

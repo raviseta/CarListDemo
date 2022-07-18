@@ -31,8 +31,9 @@ final class CarListViewModel: CarListViewModelProtocol {
         return total
     }
     
-    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager()) {
+    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager(), coordinator: CarListCoordinator) {
         self.netWorkManager = netWorkManager
+        self.coordinator = coordinator
     }
     
     func car(at index: Int) -> Content {
@@ -52,7 +53,7 @@ final class CarListViewModel: CarListViewModelProtocol {
             self.cars.append(contentsOf: carList.content)
             self.total = self.cars.count
             self.reloadTableView?()
-          
+            
         case .failure(error: let error):
             self.showError?(error.localizedDescription)
         }

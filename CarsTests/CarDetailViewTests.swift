@@ -63,6 +63,11 @@ class CarDetailViewTests: XCTestCase {
         XCTAssertNil(request)
     }
     
+    func testJailBroken_fail() {
+        let isJailBroken = UIDevice.current.isJailBroken
+           XCTAssertFalse(isJailBroken)
+    }
+    
 }
 
 extension CarDetailViewTests: WKNavigationDelegate {

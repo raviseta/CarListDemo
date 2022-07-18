@@ -19,6 +19,17 @@ class CarDetailViewController: BaseViewController {
     
     var viewModel: CarDetailViewModelProtocol!
     
+    // MARK: - Initialization
+    
+    init?(coder: NSCoder, viewModel: CarDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - View Cycle
     
     override func viewDidLoad() {
