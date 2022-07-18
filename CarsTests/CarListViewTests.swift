@@ -32,14 +32,17 @@ class CarListViewTests: XCTestCase {
     
     func testCarWebService_WhenGiveSuccess() async throws {
         let expectation = self.expectation(description: "Success")
-        
-        let response = await sut.netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
-        switch response {
-            
-        case .success(result: let result):
-            XCTAssertNotNil(result)
-            expectation.fulfill()
-        case .failure(error: _): break
+        do {
+            let response = try await sut.netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
+            switch response {
+                
+            case .success(result: let result):
+                XCTAssertNotNil(result)
+                expectation.fulfill()
+            case .failure(error: _): break
+                
+            }
+        } catch {
             
         }
         
@@ -49,14 +52,17 @@ class CarListViewTests: XCTestCase {
     func testCarWebService_WhenGiveFail() async throws {
         let expectation = self.expectation(description: "Fail")
         
-        let response = await sut.netWorkManager.request(endpoint: .none, parameters: nil, responseType: Car.self)
-        switch response {
-            
-        case .success(result: _): break
-            
-        case .failure(error: let errorMessage):
-            XCTAssertNotNil(errorMessage)
-            expectation.fulfill()
+        do {
+            let response = try await sut.netWorkManager.request(endpoint: .none, parameters: nil, responseType: Car.self)
+            switch response {
+                
+            case .success(result: _): break
+                
+            case .failure(error: let errorMessage):
+                XCTAssertNotNil(errorMessage)
+                expectation.fulfill()
+            }
+        } catch {
         }
         
         await self.waitForExpectations(timeout: 5)
@@ -75,5 +81,5 @@ class CarListViewTests: XCTestCase {
         let isPushed: ()?  = sut.carListCoordinator?.gotoCarDetailScreen(carData: carData)
         XCTAssertNotNil(isPushed)
     }
-
+    
 }

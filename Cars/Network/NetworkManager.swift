@@ -26,34 +26,17 @@ protocol NetWorkManagerProtocol {
 
 final class NetWorkManager: NetWorkManagerProtocol {
     
-    private func toDictionary(modelObject: Any) -> [String: Any] {
-        var dictionary = [String: Any]()
-        let otherSelf = Mirror(reflecting: modelObject)
-        for child in otherSelf.children {
-            if let key = child.label {
-                dictionary[key] = child.value
-            }
-        }
-        return dictionary
-    }
-    
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
         responseType: T.Type) async throws -> ResponseHandler<T> {
-            
-            let parameters = toDictionary(modelObject: parameters as Any)
-            let urlParams = parameters.compactMap({ (key, value) -> String in
-                return "\(key)=\(value)"
-            }).joined(separator: "&")
             
             var dataTask: URLSessionDataTask?
             let defaultSession = URLSession(configuration: .default)
             
             dataTask?.cancel()
             
-            if var urlComponents = URLComponents.init(string: endpoint.getURL()) {
-                urlComponents.query = urlParams
+            if let urlComponents = URLComponents.init(string: endpoint.getURL()) {
                 
                 guard let url = urlComponents.url else {
                     return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.urlNotValid.rawValue]))
