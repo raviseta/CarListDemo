@@ -19,10 +19,12 @@ protocol CarListViewModelProtocol {
 
 final class CarListViewModel: CarListViewModelProtocol {
     
+    // MARK: Properties
+    
     var reloadTableView: (() -> Void)?
     var showError: ((String) -> Void)?
-    var netWorkManager: NetWorkManagerProtocol!
     var carListCoordinator: CarListCoordinator?
+    private var carListService: CarListServiceProtocol
     
     private var arrayCarList = [Content]()
     private var totalCarItems = 0
@@ -31,8 +33,9 @@ final class CarListViewModel: CarListViewModelProtocol {
         return totalCarItems
     }
     
-    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager(), carListCoordinator: CarListCoordinator) {
-        self.netWorkManager = netWorkManager
+    // MARK: Methods
+    init(carListService: CarListServiceProtocol = CarListService(netWorkManager: NetWorkManager()), carListCoordinator: CarListCoordinator) {
+        self.carListService = carListService
         self.carListCoordinator = carListCoordinator
     }
     
@@ -45,28 +48,20 @@ final class CarListViewModel: CarListViewModelProtocol {
     }
     
     func getCarList() {
-        Task.init {
-            await getCar()
+        Task { [weak self] in
+            try await self?.getCar()
         }
     }
     
-    private func getCar() async {
+    private func getCar() async throws {
         do {
-            let response =  try await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
-            
-            switch response {
-            case .success(result: let carList):
-                self.arrayCarList.append(contentsOf: carList.content)
-                self.totalCarItems = self.arrayCarList.count
-                self.reloadTableView?()
-                
-            case .failure(error: let error):
-                self.showError?(error.localizedDescription)
-            }
+            let response = try await carListService.getCarData(endpoint: .getCarList, parameters: nil)
+            self.arrayCarList = response
+            self.totalCarItems = self.arrayCarList.count
+            self.reloadTableView?()
         } catch {
             self.showError?(error.localizedDescription)
         }
-        
     }
     
 }

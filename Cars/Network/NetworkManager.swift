@@ -26,45 +26,41 @@ protocol NetWorkManagerProtocol {
 
 final class NetWorkManager: NetWorkManagerProtocol {
     
+    fileprivate func checkNetworkConnection() throws {
+        guard Reachability.isConnectedToNetwork() else {
+            throw APIError.noInternet
+        }
+    }
+    
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
         responseType: T.Type) async throws -> ResponseHandler<T> {
             
-            var dataTask: URLSessionDataTask?
-            let defaultSession = URLSession(configuration: .default)
+            let session = URLSession(configuration: .default)
             
-            dataTask?.cancel()
+            try checkNetworkConnection()
             
             if let urlComponents = URLComponents.init(string: endpoint.getURL()) {
                 
                 guard let url = urlComponents.url else {
-                    return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.urlNotValid.rawValue]))
+                    return .failure(error: APIError.invalidURL)
                 }
                 
-                guard Reachability.isConnectedToNetwork() else {
-                    return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.noInternet.rawValue]))
+                let (data, httpResponse) = try await session.data(from: url)
+                
+                guard (httpResponse as? HTTPURLResponse)?.statusCode == ResponseCode.success.rawValue else {
+                    return .failure(error: APIError.invalidResponse)
                 }
                 
-                return await withCheckedContinuation { continuation in
-                    dataTask = defaultSession.dataTask(with: url) { data, response, error in
-                        
-                        guard let data = data else {
-                            continuation.resume(returning: .failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.notFound.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.dataNotValid.rawValue])))
-                            return
-                        }
-                        
-                        do {
-                            let response = try JSONDecoder().decode(responseType.self, from: data)
-                            continuation.resume(returning: .success(result: response))
-                        } catch let err {
-                            continuation.resume(returning: .failure(error: err))
-                        }
-                    }
-                    dataTask?.resume()
+                do {
+                    let response = try JSONDecoder().decode(responseType.self, from: data)
+                    return .success(result: response)
+                } catch {
+                    return .failure(error: APIError.invalidResponse)
                 }
             }
-            return ResponseHandler.failure(error: NSError(domain: ErrorDomain.APIDomain.rawValue, code: ErrorCode.intenalServerError.rawValue, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.requestTimeOut.rawValue]))
+            return .failure(error: APIError.invalidURL)
         }
     
 }

@@ -19,7 +19,7 @@ class CarListCoordinator: Coordinator {
     func start() {
         let carListViewModel = CarListViewModel(carListCoordinator: self)
         let carListViewController = UIStoryboard(name: StoryboardName.main.rawValue, bundle: .main).instantiateViewController(identifier: CarListViewController.className, creator: { coder -> CarListViewController? in
-            CarListViewController(coder: coder, carListViewModel: carListViewModel)
+            CarListViewController(coder: coder, viewModel: carListViewModel)
         })
         navigationController?.setViewControllers([carListViewController], animated: false)
     }

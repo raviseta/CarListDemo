@@ -9,14 +9,14 @@ import XCTest
 import WebKit
 @testable import Cars
 
-class CarDetailViewTests: XCTestCase {
+class CarDetailViewModelTests: XCTestCase {
     
     var sut: CarDetailViewModel!
     var webViewExpectation: XCTestExpectation!
     
     override func setUp() {
         super.setUp()
-        let carData = Content(id: 119302,
+        let mockCarData = Content(id: 119302,
                               title: "Q7 - Greatness starts, when you don\'t stop.",
                               dateTime: "25.05.2018 14:13",
                               tags: [],
@@ -25,7 +25,7 @@ class CarDetailViewTests: XCTestCase {
                               image: "https://www.apphusetreach.no/sites/default/files/audi_q7.jpg",
                               created: 1511968425,
                               changed: 1534311497)
-        sut = CarDetailViewModel(carData: carData)
+        sut = CarDetailViewModel(carData: mockCarData)
     }
     
     override func tearDown() {
@@ -33,7 +33,7 @@ class CarDetailViewTests: XCTestCase {
         sut = nil
     }
     
-    func testExample() throws {
+    func testLoadImageInWebView_Success() throws {
         let webView = WKWebView()
         webView.navigationDelegate = self
         webViewExpectation = expectation(description: "Load Image")
@@ -44,7 +44,7 @@ class CarDetailViewTests: XCTestCase {
         wait(for: [webViewExpectation], timeout: 5)
     }
     
-    func testFailCase() throws {
+    func testLoadImageInWebView_Fail() throws {
         
         let carData = Content(id: 119302,
                               title: "Q7 - Greatness starts, when you don\'t stop.",
@@ -63,14 +63,9 @@ class CarDetailViewTests: XCTestCase {
         XCTAssertNil(request)
     }
     
-    func testJailBroken_fail() {
-        let isJailBroken = UIDevice.current.isJailBroken
-           XCTAssertFalse(isJailBroken)
-    }
-    
 }
 
-extension CarDetailViewTests: WKNavigationDelegate {
+extension CarDetailViewModelTests: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webViewExpectation.fulfill()
     }

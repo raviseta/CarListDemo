@@ -8,8 +8,7 @@
 import Foundation
 
 enum Environment {
-    case development,
-         production
+    case production
 }
 
 class AppEnvironment {

@@ -14,12 +14,12 @@ class CarListViewController: BaseViewController {
     @IBOutlet weak private var tableCarList: UITableView!
     
     // MARK: - Variables
-    private var carListViewModel: CarListViewModelProtocol!
-        
+    private var viewModel: CarListViewModelProtocol!
+    
     // MARK: - Initialization
     
-    init?(coder: NSCoder, carListViewModel: CarListViewModel) {
-        self.carListViewModel = carListViewModel
+    init?(coder: NSCoder, viewModel: CarListViewModel) {
+        self.viewModel = viewModel
         super.init(coder: coder)
     }
     
@@ -39,15 +39,16 @@ class CarListViewController: BaseViewController {
         self.tableCarList.delegate = self
         self.tableCarList.dataSource = self
         
-        self.getCar()
+        self.fetchCars()
     }
     
-    // MARK: - Get Cars
+    // MARK: - Methods
     
-    private func getCar() {
+    private func fetchCars() {
         
         IHProgressHUD.show()
-        if var viewModel = carListViewModel {
+        
+        if var viewModel = viewModel {
             viewModel.getCarList()
             
             viewModel.reloadTableView = { [weak self] in
@@ -69,19 +70,19 @@ class CarListViewController: BaseViewController {
 
 extension CarListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  carListViewModel.numberOfRows
+        return  viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CarListTableCell.className, for: indexPath) as? CarListTableCell else {
             fatalError("CarListTableCell not found")
         }
-        let data = carListViewModel.carItem(at: indexPath.row)
+        let data = viewModel.carItem(at: indexPath.row)
         cell.carCellViewModel = CarCellViewModel(viewModel: data)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        carListViewModel.didSelectCar(at: indexPath.row)
+        viewModel.didSelectCar(at: indexPath.row)
     }
 }

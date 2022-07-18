@@ -15,19 +15,20 @@ enum StoryboardName: String {
 
 enum ErrorMessage: String {
     case errorDeviceJailBroken = "App can not run on jail broken devices."
-    case urlNotValid = "Invalid URL."
+    case invalidURL = "Invalid URL."
     case noInternet = "Internet not Available."
-    case dataNotValid = "Data invalid."
+    case invalidResponse = "Invalid Response."
     case requestTimeOut = "Request time out."
+    case noError = "No Error."
+    case fileNotFound = "Unable to find file."
 }
 
 enum ErrorDomain: String {
     case APIDomain = "API"
 }
 
-enum ErrorCode: Int {
-    case intenalServerError = 500
-    case notFound = 404
+enum ResponseCode: Int {
+    case success = 200
 }
 
 enum Images: String {
