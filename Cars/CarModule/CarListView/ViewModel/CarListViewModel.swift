@@ -51,16 +51,19 @@ final class CarListViewModel: CarListViewModelProtocol {
     }
     
     private func getCar() async {
-        
-        let response =  await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
-        
-        switch response {
-        case .success(result: let carList):
-            self.arrayCarList.append(contentsOf: carList.content)
-            self.totalCarItems = self.arrayCarList.count
-            self.reloadTableView?()
+        do {
+            let response =  try await netWorkManager.request(endpoint: .getCarList, parameters: nil, responseType: Car.self)
             
-        case .failure(error: let error):
+            switch response {
+            case .success(result: let carList):
+                self.arrayCarList.append(contentsOf: carList.content)
+                self.totalCarItems = self.arrayCarList.count
+                self.reloadTableView?()
+                
+            case .failure(error: let error):
+                self.showError?(error.localizedDescription)
+            }
+        } catch {
             self.showError?(error.localizedDescription)
         }
         

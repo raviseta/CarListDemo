@@ -21,7 +21,7 @@ protocol NetWorkManagerProtocol {
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
-        responseType: T.Type) async -> ResponseHandler<T>
+        responseType: T.Type) async throws -> ResponseHandler<T>
 }
 
 final class NetWorkManager: NetWorkManagerProtocol {
@@ -40,7 +40,7 @@ final class NetWorkManager: NetWorkManagerProtocol {
     func request<T: Decodable>(
         endpoint: APIURL,
         parameters: Encodable?,
-        responseType: T.Type) async -> ResponseHandler<T> {
+        responseType: T.Type) async throws -> ResponseHandler<T> {
             
             let parameters = toDictionary(modelObject: parameters as Any)
             let urlParams = parameters.compactMap({ (key, value) -> String in
