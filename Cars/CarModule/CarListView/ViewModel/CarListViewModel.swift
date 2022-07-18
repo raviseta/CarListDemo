@@ -8,10 +8,10 @@
 import Foundation
 
 protocol CarListViewModelProtocol {
-    var totalCount: Int {get}
+    var numberOfRows: Int {get}
     var carListCoordinator: CarListCoordinator? {get set}
     func getCar() async
-    func car(at index: Int) -> Content
+    func carItem(at index: Int) -> Content
     func didSelectCar(at index: Int)
     var reloadTableView: (() -> Void)? { get set }
     var showError: ((String) -> Void)? { get set }
@@ -28,21 +28,21 @@ final class CarListViewModel: CarListViewModelProtocol {
     private var arrayCarList = [Content]()
     private var totalCarItems = 0
     
-    var totalCount: Int {
+    var numberOfRows: Int {
         return totalCarItems
     }
     
-    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager(), coordinator: CarListCoordinator) {
+    init(netWorkManager: NetWorkManagerProtocol = NetWorkManager(), carListCoordinator: CarListCoordinator) {
         self.netWorkManager = netWorkManager
-        self.carListCoordinator = coordinator
+        self.carListCoordinator = carListCoordinator
     }
     
-    func car(at index: Int) -> Content {
+    func carItem(at index: Int) -> Content {
         return arrayCarList[index]
     }
     
     func didSelectCar(at index: Int) {
-        carListCoordinator?.gotoDetailScreen(carData: arrayCarList[index])
+        carListCoordinator?.gotoCarDetailScreen(carData: arrayCarList[index])
     }
     
     func getCarList() {

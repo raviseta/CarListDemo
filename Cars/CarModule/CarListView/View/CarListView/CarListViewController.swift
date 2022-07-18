@@ -18,8 +18,8 @@ class CarListViewController: BaseViewController {
         
     // MARK: - Initialization
     
-    init?(coder: NSCoder, carListviewModel: CarListViewModel) {
-        self.carListViewModel = carListviewModel
+    init?(coder: NSCoder, carListViewModel: CarListViewModel) {
+        self.carListViewModel = carListViewModel
         super.init(coder: coder)
     }
     
@@ -69,15 +69,15 @@ class CarListViewController: BaseViewController {
 
 extension CarListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  carListViewModel.totalCount
+        return  carListViewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CarListTableCell.className, for: indexPath) as? CarListTableCell else {
             fatalError("CarListTableCell not found")
         }
-        let data = carListViewModel.car(at: indexPath.row)
-        cell.viewModel = CarCellViewModel(viewModel: data)
+        let data = carListViewModel.carItem(at: indexPath.row)
+        cell.carCellViewModel = CarCellViewModel(viewModel: data)
         return cell
     }
     

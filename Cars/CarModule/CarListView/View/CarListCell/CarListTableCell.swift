@@ -16,7 +16,7 @@ class CarListTableCell: UITableViewCell {
     @IBOutlet weak private var lblDescription: UILabel!
     @IBOutlet weak private var viewGradiant: UIView!
     
-    var viewModel: CarCellViewModel? {
+    var carCellViewModel: CarCellViewModel? {
         didSet {
             bindViewModel()
         }
@@ -41,7 +41,7 @@ class CarListTableCell: UITableViewCell {
     
     // MARK: - BindData
     private func bindViewModel() {
-        if let viewModel = viewModel {
+        if let viewModel = carCellViewModel {
             self.lblTitle.text = viewModel.title
             self.lblDate.text = viewModel.dateTime
             self.lblDescription.text = viewModel.ingress
