@@ -21,6 +21,7 @@ enum ErrorMessage: String {
     case requestTimeOut = "Request time out."
     case noError = "No Error."
     case fileNotFound = "Unable to find file."
+    case unknownError = "Unknown error."
 }
 
 enum ErrorDomain: String {

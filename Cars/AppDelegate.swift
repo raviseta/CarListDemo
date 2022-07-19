@@ -20,11 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        if let window = window {
-            appCoordinator = AppCoordinator(window: window)
-            appCoordinator?.start()
+        
+        guard let window = window else {
+            return false
         }
-    
+        
+        appCoordinator = AppCoordinator(window: window)
+        appCoordinator?.start()
+        
         return true
     }
     

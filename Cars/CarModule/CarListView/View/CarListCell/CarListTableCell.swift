@@ -41,13 +41,17 @@ class CarListTableCell: UITableViewCell {
     
     // MARK: - BindData
     private func bindViewModel() {
-        if let viewModel = carCellViewModel {
-            self.lblTitle.text = viewModel.title
-            self.lblDate.text = viewModel.dateTime
-            self.lblDescription.text = viewModel.ingress
-            let imageURL = URL(string: viewModel.image)
-            self.imageviewCar.kf.setImage(with: imageURL, placeholder: UIImage.init(named: Images.placeholderImage.rawValue), options: nil, completionHandler: nil)
+        
+        guard let viewModel = carCellViewModel else {
+            return
         }
+        
+        self.lblTitle.text = viewModel.title
+        self.lblDate.text = viewModel.dateTime
+        self.lblDescription.text = viewModel.ingress
+        let imageURL = URL(string: viewModel.image)
+        self.imageviewCar.kf.setImage(with: imageURL, placeholder: UIImage.init(named: Images.placeholderImage.rawValue), options: nil, completionHandler: nil)
+        
     }
     
 }

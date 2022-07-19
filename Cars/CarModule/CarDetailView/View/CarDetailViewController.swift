@@ -37,13 +37,24 @@ class CarDetailViewController: BaseViewController {
         self.setupView()
     }
     
+    // MARK: - Methods
+    
     private func setupView() {
-        webView.navigationDelegate = self
-        IHProgressHUD.show()
-        if let request = self.viewModel.loadImageInWebView() {
-            webView.load(request)
-        }
+        configureWebView()
+        loadImage()
     }
+    
+    fileprivate func configureWebView() {
+        webView.navigationDelegate = self
+    }
+    
+    fileprivate func loadImage() {
+        guard let request = self.viewModel.loadImageInWebView() else {
+            return
+        }
+        webView.load(request)
+    }
+    
 }
 
 // MARK: - Webkit Navigation delegates

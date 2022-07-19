@@ -41,26 +41,28 @@ final class NetWorkManager: NetWorkManagerProtocol {
             
             try checkNetworkConnection()
             
-            if let urlComponents = URLComponents.init(string: endpoint.getURL()) {
+            guard let urlComponents = URLComponents.init(string: endpoint.getURL()) else {
+                return .failure(error: APIError.invalidURL)
                 
-                guard let url = urlComponents.url else {
-                    return .failure(error: APIError.invalidURL)
-                }
-                
-                let (data, httpResponse) = try await session.data(from: url)
-                
-                guard (httpResponse as? HTTPURLResponse)?.statusCode == ResponseCode.success.rawValue else {
-                    return .failure(error: APIError.invalidResponse)
-                }
-                
-                do {
-                    let response = try JSONDecoder().decode(responseType.self, from: data)
-                    return .success(result: response)
-                } catch {
-                    return .failure(error: APIError.invalidResponse)
-                }
             }
-            return .failure(error: APIError.invalidURL)
+            
+            guard let url = urlComponents.url else {
+                return .failure(error: APIError.invalidURL)
+            }
+            
+            let (data, httpResponse) = try await session.data(from: url)
+            
+            guard (httpResponse as? HTTPURLResponse)?.statusCode == ResponseCode.success.rawValue else {
+                return .failure(error: APIError.invalidResponse)
+            }
+            
+            do {
+                let response = try JSONDecoder().decode(responseType.self, from: data)
+                return .success(result: response)
+            } catch {
+                return .failure(error: APIError.invalidResponse)
+            }
+            
         }
     
 }

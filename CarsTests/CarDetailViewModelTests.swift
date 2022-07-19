@@ -17,14 +17,14 @@ class CarDetailViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let mockCarData = Content(id: 119302,
-                              title: "Q7 - Greatness starts, when you don\'t stop.",
-                              dateTime: "25.05.2018 14:13",
-                              tags: [],
-                              content: [],
-                              ingress: "The Audi Q7 is the result of an ambitious idea: never cease to improve.",
-                              image: "https://www.apphusetreach.no/sites/default/files/audi_q7.jpg",
-                              created: 1511968425,
-                              changed: 1534311497)
+                                  title: "Q7 - Greatness starts, when you don\'t stop.",
+                                  dateTime: "25.05.2018 14:13",
+                                  tags: [],
+                                  content: [],
+                                  ingress: "The Audi Q7 is the result of an ambitious idea: never cease to improve.",
+                                  image: "https://www.apphusetreach.no/sites/default/files/audi_q7.jpg",
+                                  created: 1511968425,
+                                  changed: 1534311497)
         sut = CarDetailViewModel(carData: mockCarData)
     }
     
@@ -37,10 +37,13 @@ class CarDetailViewModelTests: XCTestCase {
         let webView = WKWebView()
         webView.navigationDelegate = self
         webViewExpectation = expectation(description: "Load Image")
-        if let request = sut.loadImageInWebView() {
-            XCTAssertNotNil(request)
-            webView.load(request)
+        
+        guard let request = sut.loadImageInWebView() else {
+            return
         }
+        XCTAssertNotNil(request)
+        webView.load(request)
+        
         wait(for: [webViewExpectation], timeout: 5)
     }
     

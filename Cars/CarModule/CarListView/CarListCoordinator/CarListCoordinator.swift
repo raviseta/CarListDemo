@@ -25,11 +25,13 @@ class CarListCoordinator: Coordinator {
     }
     
     func gotoCarDetailScreen(carData: Content) {
-        if let navigationController = navigationController {
-            let carDetailCoordinator = CarDetailCoordinator(navigationController: navigationController, carData: carData)
-            let carDetailViewController = carDetailCoordinator.gotoCarDetailViewController()
-            navigationController.pushViewController(carDetailViewController, animated: true)
+        guard let navigationController = navigationController else {
+            return
         }
+        
+        let carDetailCoordinator = CarDetailCoordinator(navigationController: navigationController, carData: carData)
+        let carDetailViewController = carDetailCoordinator.gotoCarDetailViewController()
+        navigationController.pushViewController(carDetailViewController, animated: true)
         
     }
 }

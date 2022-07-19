@@ -14,7 +14,7 @@ class CarListViewController: BaseViewController {
     @IBOutlet weak private var tableCarList: UITableView!
     
     // MARK: - Variables
-    private var viewModel: CarListViewModelProtocol!
+    private let viewModel: CarListViewModelProtocol!
     
     // MARK: - Initialization
     
@@ -34,35 +34,42 @@ class CarListViewController: BaseViewController {
         self.setupView()
     }
     
+    // MARK: - Methods
+    
     private func setupView() {
-        self.tableCarList.register(CarListTableCell.className)
-        self.tableCarList.delegate = self
-        self.tableCarList.dataSource = self
-        
+        self.configureTableView()
         self.fetchCars()
     }
     
-    // MARK: - Methods
+    fileprivate func configureTableView() {
+        self.tableCarList.register(CarListTableCell.className)
+        self.tableCarList.delegate = self
+        self.tableCarList.dataSource = self
+    }
+    
+    fileprivate func reloadUI() {
+        DispatchQueue.main.async {
+            self.tableCarList.reloadData()
+        }
+    }
     
     private func fetchCars() {
         
-        IHProgressHUD.show()
-        
-        if var viewModel = viewModel {
-            viewModel.getCarList()
-            
-            viewModel.reloadTableView = { [weak self] in
-                DispatchQueue.main.async {
-                    IHProgressHUD.dismiss()
-                    self?.tableCarList.reloadData()
-                }
-            }
-            
-            viewModel.showError = { [weak self] errorMessage in
-                IHProgressHUD.dismiss()
-                self?.showAlert(message: errorMessage)
-            }
+        guard var viewModel = viewModel else {
+            self.showAlert(message: ErrorMessage.unknownError.rawValue)
+            return
         }
+        
+        viewModel.getCarList()
+        
+        viewModel.reloadTableView = { [weak self] in
+            self?.reloadUI()
+        }
+        
+        viewModel.showError = { [weak self] errorMessage in
+            self?.showAlert(message: errorMessage)
+        }
+        
     }
 }
 

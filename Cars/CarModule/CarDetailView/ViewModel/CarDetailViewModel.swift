@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import IHProgressHUD
 
 protocol CarDetailViewModelProtocol {
     var carData: Content? {get set}
@@ -21,14 +22,18 @@ final class CarDetailViewModel: CarDetailViewModelProtocol {
     }
     
     func loadImageInWebView() -> URLRequest? {
-        if let imageURL = carData?.image {
-            let url = URL.init(string: imageURL)
-            if let url = url {
-                let request = URLRequest(url: url)
-                return request
-            }
+        IHProgressHUD.show()
+        guard let imageURL = carData?.image else {
+            return nil
         }
-        return nil
+        
+        let url = URL.init(string: imageURL)
+        guard let url = url else {
+            return nil
+        }
+        
+        let request = URLRequest(url: url)
+        return request
     }
     
 }

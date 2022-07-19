@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import IHProgressHUD
 
 protocol CarListViewModelProtocol {
     var numberOfRows: Int {get}
@@ -54,13 +55,16 @@ final class CarListViewModel: CarListViewModelProtocol {
     }
     
     private func getCar() async throws {
+        await  IHProgressHUD.show()
         do {
             let response = try await carListService.getCarData(endpoint: .getCarList, parameters: nil)
             self.arrayCarList = response
             self.totalCarItems = self.arrayCarList.count
             self.reloadTableView?()
+            await  IHProgressHUD.dismiss()
         } catch {
             self.showError?(error.localizedDescription)
+            await  IHProgressHUD.dismiss()
         }
     }
     
