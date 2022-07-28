@@ -22,6 +22,7 @@ enum ErrorMessage: String {
     case noError = "No Error."
     case fileNotFound = "Unable to find file."
     case unknownError = "Unknown error."
+    case XIBnotFound = "XIB not found."
 }
 
 enum ErrorDomain: String {

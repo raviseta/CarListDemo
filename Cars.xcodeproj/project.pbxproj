@@ -38,6 +38,7 @@
 		AC9E1BFB2885F54900172740 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1BFA2885F54900172740 /* MockData.swift */; };
 		AC9E1BFE2885F8CD00172740 /* CarData.json in Resources */ = {isa = PBXBuildFile; fileRef = AC9E1BFD2885F8CD00172740 /* CarData.json */; };
 		AC9E1C002885F93C00172740 /* CarListServiceMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1BFF2885F93C00172740 /* CarListServiceMockData.swift */; };
+		ACA048902886E7210050D150 /* CarListCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0488F2886E7210050D150 /* CarListCellTests.swift */; };
 		ACB8774A288006DC00C90FCB /* UIDevice+JailBroken.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */; };
 		ACB8774C28801BB800C90FCB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8774B28801BB800C90FCB /* BaseViewController.swift */; };
 		ACDAF4312885DC42004A957B /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDAF4302885DC42004A957B /* APIErrors.swift */; };
@@ -95,6 +96,7 @@
 		AC9E1BFA2885F54900172740 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		AC9E1BFD2885F8CD00172740 /* CarData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CarData.json; sourceTree = "<group>"; };
 		AC9E1BFF2885F93C00172740 /* CarListServiceMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListServiceMockData.swift; sourceTree = "<group>"; };
+		ACA0488F2886E7210050D150 /* CarListCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCellTests.swift; sourceTree = "<group>"; };
 		ACB87749288006DC00C90FCB /* UIDevice+JailBroken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+JailBroken.swift"; sourceTree = "<group>"; };
 		ACB8774B28801BB800C90FCB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		ACDAF4302885DC42004A957B /* APIErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				AC98414E287C761400BFBCD1 /* CarListServiceTests.swift */,
 				AC9A998028805AB7001F4C4C /* CarDetailViewModelTests.swift */,
 				AC9E1BF62885F01A00172740 /* CarListViewModelTests.swift */,
+				ACA0488F2886E7210050D150 /* CarListCellTests.swift */,
 			);
 			path = CarsTests;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACA048902886E7210050D150 /* CarListCellTests.swift in Sources */,
 				AC9A998128805AB7001F4C4C /* CarDetailViewModelTests.swift in Sources */,
 				AC9DA7022885E0F1001A356B /* APIURLTests.swift in Sources */,
 				AC98414F287C761400BFBCD1 /* CarListServiceTests.swift in Sources */,
