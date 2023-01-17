@@ -39,4 +39,3 @@ This is car list application. I have used a public API for network calls and fet
 - Add Analytics.
 - UITest cases using XCUITest.
 - Snapshot Testing.
-
